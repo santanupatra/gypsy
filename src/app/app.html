@@ -1,0 +1,144 @@
+<ion-menu id="myMenu" [content]="content">
+  <ion-header>
+    <ion-toolbar color="orange">
+      <div class="left-bar-top-area">
+        <div class="left-top-pic">
+            <img src="assets/img/no-image.jpeg" alt=""> 
+           <!-- <img src="{{user_image}}" alt=""> -->
+           
+        
+        </div>
+        <div>
+      
+          <h5>{{username}}</h5>
+          <!-- <p>Personal balance $0.00 </p> -->
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list class="left-sidebar-list">
+   
+
+
+      <button menuClose ion-item icon-left (click)="openPage('HomePage')">
+        <!-- <ion-icon item-left name="ios-list-box-outline" ></ion-icon> -->
+        <ion-icon item-start="" role="img" class="icon icon-md ion-md-home item-icon" aria-label="home" ng-reflect-name="home"></ion-icon>
+       Home
+      </button>
+
+      <button menuClose ion-item icon-left (click)="openPage('EditProfilePage')">
+          <ion-icon item-start="" role="img" class="icon icon-md ion-md-person item-icon" aria-label="person" ng-reflect-name="person"></ion-icon>
+       My Profile
+      </button>
+
+      <button menuClose ion-item icon-left (click)="openPage('WishlistPage')">
+          <ion-icon item-start="" role="img" class="icon icon-md ion-md-heart item-icon" aria-label="heart" ng-reflect-name="heart"></ion-icon>
+       My Activity
+      </button>
+
+      <button menuClose ion-item icon-left (click)="openPage('CompanylistPage')">
+        <ion-icon item-left name="ios-list-box-outline" ></ion-icon>
+       Company List
+      </button>
+
+
+      <!-- <button menuClose ion-item icon-left (click)="openPage('FeedPage')">
+        <ion-icon item-left name="ios-list-box-outline" ></ion-icon>
+       Feed
+      </button> -->
+
+      <button menuClose ion-item icon-left (click)="openPage('ReferFriendPage')">
+          <ion-icon item-start="" role="img" class="icon icon-md ion-md-people item-icon" aria-label="people" ng-reflect-name="people"></ion-icon>
+       Reffer Friend
+      </button>
+
+      <button menuClose ion-item icon-left (click)="openPage('ChangePasswordPage')">
+          <ion-icon item-start="" role="img" class="icon icon-md ion-md-key item-icon" aria-label="key" ng-reflect-name="key"></ion-icon>
+       Change Password
+      </button>
+
+
+      <button menuClose ion-item icon-left (click)="openPage('ReviewPage')">
+          <ion-icon item-start="" role="img" class="icon icon-md ion-md-star item-icon icon-md-primary" aria-label="star" ng-reflect-name="star" ng-reflect-color="primary"></ion-icon>
+
+         My Review
+        </button>
+
+      <button menuClose ion-item icon-left (click)="openPage('PrivacyPage')">
+        <ion-icon item-left name="ios-list-box-outline" ></ion-icon>
+         Privacy & Policy
+      </button>
+
+      <button menuClose ion-item icon-left (click)="openPage('TermsconditionPage')">
+          <ion-icon item-start="" role="img" class="icon icon-md ion-md-copy item-icon" aria-label="copy" ng-reflect-name="copy"></ion-icon>
+           Terms & Condition
+      </button>
+
+    
+      
+
+      <button menuClose ion-item icon-left (click)="logout()">
+        <ion-icon item-left name="md-log-out"></ion-icon>
+        Logout
+      </button>
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+
+
+
+<!--  footer Part start  -->
+<!-- <ion-tabs name="conference" *ngIf="!footerIsHidden">
+    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" tabUrlPath="conference-schedule"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="My Activity" tabIcon="heart"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Social" tabIcon="people"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="Settings" tabIcon="cog"></ion-tab>
+</ion-tabs> -->
+
+<ion-footer *ngIf="!footerIsHidden" class="footer">
+    <ion-toolbar style=" padding: 0;">
+      <ion-grid style=" padding: 0;">
+        <ion-row class="row-bottom">
+          <ion-col text-center >
+              <a (click)="openPage('HomePage')">
+                  <ion-icon name="home"></ion-icon>
+                  <p class="titl">Home</p>
+              </a>
+          </ion-col>
+          <ion-col text-center>
+            <a (click)="openPage('WishlistPage')">
+              <ion-icon name="pricetags" ></ion-icon>
+              <p class="titl">Activity</p>
+            </a>
+          </ion-col>
+          <ion-col text-center>
+            <a (click)="openPage('CompanylistPage')" >
+              <ion-icon name="ios-list-box-outline"></ion-icon>
+              <p class="titl">Social</p>
+            </a>
+          </ion-col>
+        
+          <ion-col text-center>
+            <a (click)="openPage('EditProfilePage')">
+              <ion-icon name="ios-person-outline"></ion-icon>
+              <p class="titl">Settings</p>
+            </a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  
+  
+  </ion-footer>
+  
+
+<!-- footer part end  -->
+
