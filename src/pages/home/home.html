@@ -59,15 +59,15 @@
                   <button ion-button (click)="addLikelLst(newarraival.id, i)">
                     <img *ngIf="newarraival.like == 0" src="assets/img/thumb.png" alt="">
                     <img *ngIf="newarraival.like == 1" src="assets/img/thumb-b.png" alt="">
-                    <span class="like-nmbr">(139)</span>
+                    <span class="like-nmbr">({{newarraival.total_like}})</span>
                   </button>
                   <h3>Like</h3>
                 </div>
                 <div class="like-area">
-                  <button ion-button (click)="addWishList(newarraival.id)">
-                    <img *ngIf="!heart" src="assets/img/heart.png" alt="">
-                    <img *ngIf="heart" src="assets/img/heart-b.png" alt="">
-                    <span class="like-nmbr">(38)</span>
+                  <button ion-button (click)="addWishList(newarraival.id, i)">
+                    <img *ngIf="newarraival.wishlist == 0" src="assets/img/heart.png" alt="">
+                    <img *ngIf="newarraival.wishlist == 1" src="assets/img/heart-b.png" alt="">
+                    <span class="like-nmbr">({{newarraival.total_wishlist}})</span>
                   </button>
                   <h3>WishList</h3>
                 </div>
