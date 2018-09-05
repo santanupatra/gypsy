@@ -1,6 +1,6 @@
 webpackJsonp([12],{
 
-/***/ 681:
+/***/ 679:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetailPageModule", function() { return DetailPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__detail__ = __webpack_require__(698);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__detail__ = __webpack_require__(696);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var DetailPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 698:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -105,11 +105,16 @@ var DetailPage = /** @class */ (function () {
     };
     DetailPage.prototype.detailsProduct = function (id) {
         var _this = this;
-        this.api.post('productdetails', { product_id: id }).subscribe(function (response) {
+        this.api.post('productdetails', { product_id: id, user_id: this.user_id }).subscribe(function (response) {
             console.log(response);
             if (response.Ack === 1) {
                 _this.productDetails = response.product_details.Product;
-                _this.heart = true;
+                if (response.like >= 1) {
+                    _this.like = true;
+                }
+                if (response.wishlist >= 1) {
+                    _this.heart = true;
+                }
                 console.log(_this.productDetails);
                 _this.prolikeCount = response.product_details.Like.length;
                 //  alert(this.prolikeCount);
