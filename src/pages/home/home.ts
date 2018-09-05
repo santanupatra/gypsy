@@ -54,17 +54,13 @@ export class HomePage {
   }
 
   newArraival(){
-
-    this.api.post('newarraival',{user_id:""}).subscribe((response : any)  => {
+    console.log(this.user_id);
+    this.api.post('newarraival',{user_id:this.user_id}).subscribe((response : any)  => {
     //console.log(response);
    // console.log(response.products);
-    if(response.ACK === 1){
-      
+    if(response.ACK === 1){      
       this.newarraivalList = response.products;
-      this.image_url = response.image_url;
-      //this.is_exist = 1;
-
-      console.log(this.newarraivalList);
+      this.image_url = response.image_url;     
 
     }else{
       //this.message = response.msg;
@@ -124,7 +120,7 @@ export class HomePage {
     });
   }
 
-  addLikelLst(id){
+  addLikelLst(id, index){    
     let loading = this.loadingCtrl.create({
       spinner: 'show',
       content: 'Loading...',
@@ -135,10 +131,11 @@ export class HomePage {
       console.log(response);
       if(response.Ack === 1){
         loading.dismiss();
-        this.like = true;        
+        this.newarraivalList[index].like = 1;       
       }
       else{
-        this.like = false; 
+        this.like = false;
+        this.newarraivalList[index].like = 0;  
       }
     }, err => {
       this.service.popup('Alert', 'Already Registered');

@@ -30,13 +30,14 @@
     </ion-list-header>
     
     <div class="new-arrival">
-       <ion-card *ngFor="let newarraival of newarraivalList">
-        <img class="card-pic" src="{{image_url}}{{newarraival.ProductImage[0].originalpath}}" (click)="gotoDetails(newarraival.Product.id)">
+       <ion-card ng-init='count=0' *ngFor="let newarraival of newarraivalList; index as i"> 
+              
+        <img class="card-pic" src="{{newarraival.image}}" (click)="gotoDetails(newarraival.id)">
         <ion-card-content>
           <ion-row>
             <ion-col class="pl-0 pr-0">
               <ion-card-title>
-                  {{newarraival.Product.product_name}}
+                  {{newarraival.product_name}}
               </ion-card-title>
               <div class="star-area">
                 <span>
@@ -49,20 +50,21 @@
                 
                 <span class="rate">(4.5)</span>
               </div>
-              <p class="price">${{newarraival.Product.price}}</p>
+              <p class="price">${{newarraival.price}}</p>
             </ion-col>
             <ion-col class="pl-0 pr-0">
               <div class="like-total">
-                <div class="like-area">                 
-                  <button ion-button (click)="addLikelLst(newarraival.Product.id)">
-                    <img *ngIf="!like" src="assets/img/thumb.png" alt="">
-                    <img *ngIf="like" src="assets/img/thumb-b.png" alt="">
+                <div class="like-area">  
+                  {{count}}               
+                  <button ion-button (click)="addLikelLst(newarraival.id, i)">
+                    <img *ngIf="newarraival.like == 0" src="assets/img/thumb.png" alt="">
+                    <img *ngIf="newarraival.like == 1" src="assets/img/thumb-b.png" alt="">
                     <span class="like-nmbr">(139)</span>
                   </button>
                   <h3>Like</h3>
                 </div>
                 <div class="like-area">
-                  <button ion-button (click)="addWishList(newarraival.Product.id)">
+                  <button ion-button (click)="addWishList(newarraival.id)">
                     <img *ngIf="!heart" src="assets/img/heart.png" alt="">
                     <img *ngIf="heart" src="assets/img/heart-b.png" alt="">
                     <span class="like-nmbr">(38)</span>
@@ -71,9 +73,9 @@
                 </div>
               </div>
               <div class="social-area">
-               <a href="{{newarraival.Product.fb_link}}" ><img src="assets/img/fb-icon.png" alt=""></a>
-               <a href="{{newarraival.Product.twitter_link}}">  <img src="assets/img/twtr-icon.png" alt=""></a>
-               <a href="{{newarraival.Product.printerest_link}}"> <img src="assets/img/pint-icon.png" alt=""></a>
+               <a href="{{newarraival.fb_link}}" ><img src="assets/img/fb-icon.png" alt=""></a>
+               <a href="{{newarraival.twitter_link}}">  <img src="assets/img/twtr-icon.png" alt=""></a>
+               <a href="{{newarraival.printerest_link}}"> <img src="assets/img/pint-icon.png" alt=""></a>
               </div>
             </ion-col>
           </ion-row>

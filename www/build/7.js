@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 686:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(703);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(700);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 703:
+/***/ 700:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -93,14 +93,13 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.newArraival = function () {
         var _this = this;
-        this.api.post('newarraival', { user_id: "" }).subscribe(function (response) {
+        console.log(this.user_id);
+        this.api.post('newarraival', { user_id: this.user_id }).subscribe(function (response) {
             //console.log(response);
             // console.log(response.products);
             if (response.ACK === 1) {
                 _this.newarraivalList = response.products;
                 _this.image_url = response.image_url;
-                //this.is_exist = 1;
-                console.log(_this.newarraivalList);
             }
             else {
                 //this.message = response.msg;
@@ -153,7 +152,7 @@ var HomePage = /** @class */ (function () {
             _this.service.popup('Alert', 'Already Registered');
         });
     };
-    HomePage.prototype.addLikelLst = function (id) {
+    HomePage.prototype.addLikelLst = function (id, index) {
         var _this = this;
         var loading = this.loadingCtrl.create({
             spinner: 'show',
@@ -165,10 +164,11 @@ var HomePage = /** @class */ (function () {
             console.log(response);
             if (response.Ack === 1) {
                 loading.dismiss();
-                _this.like = true;
+                _this.newarraivalList[index].like = 1;
             }
             else {
                 _this.like = false;
+                _this.newarraivalList[index].like = 0;
             }
         }, function (err) {
             _this.service.popup('Alert', 'Already Registered');
@@ -176,12 +176,18 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/home/home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      <img src="assets/img/home-logo.png" alt="Ionic logo">\n    </ion-title>\n     <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n        <ion-icon name="cart" (click)="gotoviewCart()"></ion-icon>\n      </button>\n    </ion-buttons> \n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n    <ion-list-header class="item item-ios list-header list-header-ios">\n      New Arrival\n    </ion-list-header>\n    \n    <div class="new-arrival">\n       <ion-card *ngFor="let newarraival of newarraivalList">\n        <img class="card-pic" src="{{image_url}}{{newarraival.ProductImage[0].originalpath}}" (click)="gotoDetails(newarraival.Product.id)">\n        <ion-card-content>\n          <ion-row>\n            <ion-col class="pl-0 pr-0">\n              <ion-card-title>\n                  {{newarraival.Product.product_name}}\n              </ion-card-title>\n              <div class="star-area">\n                <span>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star-half"></ion-icon>\n                </span>\n                \n                <span class="rate">(4.5)</span>\n              </div>\n              <p class="price">${{newarraival.Product.price}}</p>\n            </ion-col>\n            <ion-col class="pl-0 pr-0">\n              <div class="like-total">\n                <div class="like-area">                 \n                  <button ion-button (click)="addLikelLst(newarraival.Product.id)">\n                    <img *ngIf="!like" src="assets/img/thumb.png" alt="">\n                    <img *ngIf="like" src="assets/img/thumb-b.png" alt="">\n                    <span class="like-nmbr">(139)</span>\n                  </button>\n                  <h3>Like</h3>\n                </div>\n                <div class="like-area">\n                  <button ion-button (click)="addWishList(newarraival.Product.id)">\n                    <img *ngIf="!heart" src="assets/img/heart.png" alt="">\n                    <img *ngIf="heart" src="assets/img/heart-b.png" alt="">\n                    <span class="like-nmbr">(38)</span>\n                  </button>\n                  <h3>WishList</h3>\n                </div>\n              </div>\n              <div class="social-area">\n               <a href="{{newarraival.Product.fb_link}}" ><img src="assets/img/fb-icon.png" alt=""></a>\n               <a href="{{newarraival.Product.twitter_link}}">  <img src="assets/img/twtr-icon.png" alt=""></a>\n               <a href="{{newarraival.Product.printerest_link}}"> <img src="assets/img/pint-icon.png" alt=""></a>\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-card-content>\n      </ion-card>\n\n    </div>\n\n    <ion-list-header class="item item-ios list-header list-header-ios">\n     Best Seller\n    </ion-list-header>\n    <div class="new-arrival">\n      <ion-card *ngFor="let bseller of bestseller">\n        <img class="card-pic" src="{{image_url}}{{bseller.product_images.originalpath}}" (click)="gotoDetails(bseller.products.id)">\n        <ion-card-content>\n          <ion-row>\n            <ion-col class="pl-0 pr-0">\n              <ion-card-title>\n                 {{bseller.products.product_name}}\n              </ion-card-title>\n              <div class="star-area">\n                <span>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star-half"></ion-icon>\n                </span>\n    \n                <span class="rate">(4.5)</span>\n              </div>\n              <p class="price">${{bseller.products.price}}</p>\n            </ion-col>\n            <ion-col class="pl-0 pr-0">\n              <div class="like-total">\n                <div class="like-area">\n                  <button ion-button>\n                    <img src="assets/img/thumb-b.png" alt="">\n                    <span class="like-nmbr">(139)</span>\n                  </button>\n                  <h3>Like</h3>\n                </div>\n                <div class="like-area">\n                  <button ion-button>\n                    <img src="assets/img/heart-b.png" alt="">\n                    <span class="like-nmbr">(38)</span>\n                  </button>\n                  <h3>WishList</h3>\n                </div>\n              </div>\n              <div class="social-area">\n                <img src="assets/img/fb-icon.png" alt="">\n                <img src="assets/img/twtr-icon.png" alt="">\n                <img src="assets/img/pint-icon.png" alt="">\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-card-content>\n      </ion-card>\n    \n    </div>\n\n  </ion-list>\n  \n\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/home/home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      <img src="assets/img/home-logo.png" alt="Ionic logo">\n    </ion-title>\n     <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n        <ion-icon name="cart" (click)="gotoviewCart()"></ion-icon>\n      </button>\n    </ion-buttons> \n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n    <ion-list-header class="item item-ios list-header list-header-ios">\n      New Arrival\n    </ion-list-header>\n    \n    <div class="new-arrival">\n       <ion-card ng-init=\'count=0\' *ngFor="let newarraival of newarraivalList; index as i"> \n              \n        <img class="card-pic" src="{{newarraival.image}}" (click)="gotoDetails(newarraival.id)">\n        <ion-card-content>\n          <ion-row>\n            <ion-col class="pl-0 pr-0">\n              <ion-card-title>\n                  {{newarraival.product_name}}\n              </ion-card-title>\n              <div class="star-area">\n                <span>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star-half"></ion-icon>\n                </span>\n                \n                <span class="rate">(4.5)</span>\n              </div>\n              <p class="price">${{newarraival.price}}</p>\n            </ion-col>\n            <ion-col class="pl-0 pr-0">\n              <div class="like-total">\n                <div class="like-area">  \n                  {{count}}               \n                  <button ion-button (click)="addLikelLst(newarraival.id, i)">\n                    <img *ngIf="newarraival.like == 0" src="assets/img/thumb.png" alt="">\n                    <img *ngIf="newarraival.like == 1" src="assets/img/thumb-b.png" alt="">\n                    <span class="like-nmbr">(139)</span>\n                  </button>\n                  <h3>Like</h3>\n                </div>\n                <div class="like-area">\n                  <button ion-button (click)="addWishList(newarraival.id)">\n                    <img *ngIf="!heart" src="assets/img/heart.png" alt="">\n                    <img *ngIf="heart" src="assets/img/heart-b.png" alt="">\n                    <span class="like-nmbr">(38)</span>\n                  </button>\n                  <h3>WishList</h3>\n                </div>\n              </div>\n              <div class="social-area">\n               <a href="{{newarraival.fb_link}}" ><img src="assets/img/fb-icon.png" alt=""></a>\n               <a href="{{newarraival.twitter_link}}">  <img src="assets/img/twtr-icon.png" alt=""></a>\n               <a href="{{newarraival.printerest_link}}"> <img src="assets/img/pint-icon.png" alt=""></a>\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-card-content>\n      </ion-card>\n\n    </div>\n\n    <ion-list-header class="item item-ios list-header list-header-ios">\n     Best Seller\n    </ion-list-header>\n    <div class="new-arrival">\n      <ion-card *ngFor="let bseller of bestseller">\n        <img class="card-pic" src="{{image_url}}{{bseller.product_images.originalpath}}" (click)="gotoDetails(bseller.products.id)">\n        <ion-card-content>\n          <ion-row>\n            <ion-col class="pl-0 pr-0">\n              <ion-card-title>\n                 {{bseller.products.product_name}}\n              </ion-card-title>\n              <div class="star-area">\n                <span>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star-half"></ion-icon>\n                </span>\n    \n                <span class="rate">(4.5)</span>\n              </div>\n              <p class="price">${{bseller.products.price}}</p>\n            </ion-col>\n            <ion-col class="pl-0 pr-0">\n              <div class="like-total">\n                <div class="like-area">\n                  <button ion-button>\n                    <img src="assets/img/thumb-b.png" alt="">\n                    <span class="like-nmbr">(139)</span>\n                  </button>\n                  <h3>Like</h3>\n                </div>\n                <div class="like-area">\n                  <button ion-button>\n                    <img src="assets/img/heart-b.png" alt="">\n                    <span class="like-nmbr">(38)</span>\n                  </button>\n                  <h3>WishList</h3>\n                </div>\n              </div>\n              <div class="social-area">\n                <img src="assets/img/fb-icon.png" alt="">\n                <img src="assets/img/twtr-icon.png" alt="">\n                <img src="assets/img/pint-icon.png" alt="">\n              </div>\n            </ion-col>\n          </ion-row>\n        </ion-card-content>\n      </ion-card>\n    \n    </div>\n\n  </ion-list>\n  \n\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/home/home.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=home.js.map

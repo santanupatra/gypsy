@@ -123,7 +123,7 @@ var map = {
 		13
 	],
 	"../pages/detail/detail.module": [
-		681,
+		679,
 		12
 	],
 	"../pages/edit-profile/edit-profile.module": [
@@ -131,11 +131,11 @@ var map = {
 		11
 	],
 	"../pages/feed/feed.module": [
-		679,
+		680,
 		10
 	],
 	"../pages/follow/follow.module": [
-		680,
+		681,
 		9
 	],
 	"../pages/forgot-password/forgot-password.module": [
@@ -143,35 +143,35 @@ var map = {
 		8
 	],
 	"../pages/home/home.module": [
-		686,
+		683,
 		7
 	],
 	"../pages/login/login.module": [
-		683,
+		687,
 		6
 	],
 	"../pages/privacy/privacy.module": [
-		690,
+		684,
 		5
 	],
 	"../pages/refer-friend/refer-friend.module": [
-		684,
+		685,
 		4
 	],
 	"../pages/review/review.module": [
-		685,
+		686,
 		3
 	],
 	"../pages/signup/signup.module": [
-		689,
+		688,
 		2
 	],
 	"../pages/termscondition/termscondition.module": [
-		687,
+		689,
 		1
 	],
 	"../pages/wishlist/wishlist.module": [
-		688,
+		690,
 		0
 	]
 };
@@ -351,18 +351,18 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/change-password/change-password.module#ChangePasswordPageModule', name: 'ChangePasswordPage', segment: 'change-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/companylist/companylist.module#CompanylistPageModule', name: 'CompanylistPage', segment: 'companylist', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/follow/follow.module#FollowPageModule', name: 'FollowPage', segment: 'follow', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/privacy/privacy.module#PrivacyPageModule', name: 'PrivacyPage', segment: 'privacy', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/refer-friend/refer-friend.module#ReferFriendPageModule', name: 'ReferFriendPage', segment: 'refer-friend', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/review/review.module#ReviewPageModule', name: 'ReviewPage', segment: 'review', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/termscondition/termscondition.module#TermsconditionPageModule', name: 'TermsconditionPage', segment: 'termscondition', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/wishlist/wishlist.module#WishlistPageModule', name: 'WishlistPage', segment: 'wishlist', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/privacy/privacy.module#PrivacyPageModule', name: 'PrivacyPage', segment: 'privacy', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/termscondition/termscondition.module#TermsconditionPageModule', name: 'TermsconditionPage', segment: 'termscondition', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/wishlist/wishlist.module#WishlistPageModule', name: 'WishlistPage', segment: 'wishlist', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -457,6 +457,7 @@ var MyApp = /** @class */ (function () {
     // }
     MyApp.prototype.logout = function () {
         localStorage.removeItem("authID");
+        localStorage.setItem("authID", "");
         localStorage.removeItem("authTYPE");
         this.nav.setRoot('LoginPage');
     };
