@@ -99,7 +99,7 @@ export class HomePage {
     this.navCtrl.push("CartPage");
   }
 
-  addWishList(id){
+  addWishList(id, index){
     let loading = this.loadingCtrl.create({
       spinner: 'show',
       content: 'Loading...',
@@ -110,10 +110,13 @@ export class HomePage {
       console.log(response);
       if(response.Ack === 1){
         loading.dismiss();
-        this.heart = true;        
+        this.newarraivalList[index].wishlist = 1;
+        this.newarraivalList[index].total_wishlist = this.newarraivalList[index].total_wishlist+1;        
       }
       else{
-        this.heart = false;  
+        loading.dismiss();
+        this.newarraivalList[index].wishlist = 0;
+        this.newarraivalList[index].total_wishlist = this.newarraivalList[index].total_wishlist-1; 
       }     
     }, err => {
       this.service.popup('Alert', 'Already Registered');
@@ -131,11 +134,13 @@ export class HomePage {
       console.log(response);
       if(response.Ack === 1){
         loading.dismiss();
-        this.newarraivalList[index].like = 1;       
+        this.newarraivalList[index].like = 1; 
+        this.newarraivalList[index].total_like = this.newarraivalList[index].total_like+1;      
       }
       else{
-        this.like = false;
-        this.newarraivalList[index].like = 0;  
+        loading.dismiss();
+        this.newarraivalList[index].like = 0;
+        this.newarraivalList[index].total_like = this.newarraivalList[index].total_like-1;  
       }
     }, err => {
       this.service.popup('Alert', 'Already Registered');

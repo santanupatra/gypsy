@@ -24,11 +24,14 @@ export class MyApp {
 
   username:any;
   user_image:any;
+  categoryList:any;
+  image_url:any;
   constructor(
     platform: Platform,
 
     public events: Events, 
-
+    public api: ApiProvider,
+    private service: ServiceProvider,
     public menuCtrl: MenuController,
     statusBar: StatusBar,
     splashScreen: SplashScreen, 
@@ -52,6 +55,7 @@ export class MyApp {
       }
       statusBar.styleDefault();
       splashScreen.hide();
+      this.getCategorylist();
   });
 
 
@@ -90,6 +94,18 @@ export class MyApp {
   //   let userid = localStorage.getItem('authID');
 
   // }
+  getCategorylist(){    
+    this.api.post('categoryList',{}).subscribe((response : any)  => {
+      console.log(response);
+      if(response.Ack === 1){     
+          this.categoryList = response.categories;  
+          this.image_url = response.image_url;
+      }
+    }, err => {
+      this.service.popup('Alert', 'No Category');
+    });
+    
+      }
 
 logout(){
   localStorage.removeItem("authID");
