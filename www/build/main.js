@@ -1,4 +1,4 @@
-webpackJsonp([17],{
+webpackJsonp([18],{
 
 /***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -204,70 +204,74 @@ webpackEmptyAsyncContext.id = 164;
 var map = {
 	"../pages/account/account.module": [
 		674,
-		16
+		17
 	],
 	"../pages/cart/cart.module": [
 		675,
-		15
+		16
 	],
 	"../pages/change-password/change-password.module": [
 		676,
-		14
+		15
 	],
 	"../pages/companylist/companylist.module": [
 		677,
-		13
+		14
 	],
 	"../pages/detail/detail.module": [
 		678,
-		12
+		13
 	],
 	"../pages/edit-profile/edit-profile.module": [
 		679,
-		11
+		12
 	],
 	"../pages/feed/feed.module": [
 		680,
-		10
+		11
 	],
 	"../pages/follow/follow.module": [
 		681,
-		9
+		10
 	],
 	"../pages/forgot-password/forgot-password.module": [
 		682,
-		8
+		9
 	],
 	"../pages/home/home.module": [
 		683,
-		7
+		8
 	],
 	"../pages/login/login.module": [
 		684,
-		6
+		7
 	],
 	"../pages/privacy/privacy.module": [
 		685,
+		6
+	],
+	"../pages/product-list/product-list.module": [
+		686,
 		5
 	],
 	"../pages/refer-friend/refer-friend.module": [
-		686,
+		687,
 		4
 	],
 	"../pages/review/review.module": [
-		687,
+		688,
 		3
 	],
 	"../pages/signup/signup.module": [
-		688,
+		689,
 		2
 	],
 	"../pages/termscondition/termscondition.module": [
-		689,
+		690,
 		1
 	],
 	"../pages/wishlist/wishlist.module": [
-		690,
+		691,
 		0
 	]
 };
@@ -358,6 +362,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/privacy/privacy.module#PrivacyPageModule', name: 'PrivacyPage', segment: 'privacy', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/refer-friend/refer-friend.module#ReferFriendPageModule', name: 'ReferFriendPage', segment: 'refer-friend', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/review/review.module#ReviewPageModule', name: 'ReviewPage', segment: 'review', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
@@ -483,23 +488,20 @@ var MyApp = /** @class */ (function () {
     MyApp.prototype.openPage = function (page) {
         this.nav.push(page);
     };
+    MyApp.prototype.productList = function (id) {
+        this.nav.push("ProductListPage", { id: id });
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/app/app.html"*/'<ion-menu id="loggedInMenu" [content]="content">\n\n	<ion-header>\n		<ion-toolbar>\n			<ion-title>Categories</ion-title>\n		</ion-toolbar>\n	</ion-header>\n	\n	<ion-content class="outer-content">\n		<ion-list class="left-menu" *ngFor="let category of categoryList">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="{{image_url}}{{category.CategoryImage[0].originalpath}}" alt=""></ion-icon> {{category.Category.category_name}}\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<!--<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/connected.png" alt=""></ion-icon> Connected Home\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/speaker.png" alt=""></ion-icon> Speaker\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/ar-vr.png" alt=""></ion-icon> AR/VR\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/drone.png" alt=""></ion-icon> Drones\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/camera.png" alt=""></ion-icon> Cameras\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/grill.png" alt=""></ion-icon> Grill\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/charger.png" alt=""></ion-icon> Chargers\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/travel.png" alt=""></ion-icon> Travel and outdoor\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $50\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $100\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $500\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>-->\n    </ion-content>\n\n	<!--<ion-content class="outer-content">\n		<ion-list>\n			<button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">\n			<ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>\n			{{p.title}}\n			</button>\n		</ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          Account\n        </ion-list-header>\n        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">\n          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          Tutorial\n        </ion-list-header>\n        <button ion-item menuClose (click)="openTutorial()">\n          <ion-icon item-start name="hammer"></ion-icon>\n          Show Tutorial\n        </button>\n      </ion-list>\n\n    </ion-content>-->\n\n  </ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n\n\n\n<!--  footer Part start  -->\n<!-- <ion-tabs name="conference" *ngIf="!footerIsHidden">\n    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" tabUrlPath="conference-schedule"></ion-tab>\n    <ion-tab [root]="tab2Root" tabTitle="My Activity" tabIcon="heart"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="Social" tabIcon="people"></ion-tab>\n    <ion-tab [root]="tab4Root" tabTitle="Settings" tabIcon="cog"></ion-tab>\n</ion-tabs> -->\n\n<ion-footer *ngIf="!footerIsHidden" class="footer">\n    <ion-toolbar style=" padding: 0;">\n      <ion-grid style=" padding: 0;">\n        <ion-row class="row-bottom">\n          <ion-col text-center >\n              <a (click)="openPage(\'HomePage\')">\n                  <ion-icon name="home"></ion-icon>\n                  <p class="titl">Home</p>\n              </a>\n          </ion-col>\n          <ion-col text-center>\n            <a (click)="openPage(\'WishlistPage\')">\n              <ion-icon name="pricetags" ></ion-icon>\n              <p class="titl">Activity</p>\n            </a>\n          </ion-col>\n          <ion-col text-center>\n            <a (click)="openPage(\'CompanylistPage\')" >\n              <ion-icon name="ios-list-box-outline"></ion-icon>\n              <p class="titl">Social</p>\n            </a>\n          </ion-col>\n        \n          <ion-col text-center>\n            <a (click)="openPage(\'EditProfilePage\')">\n              <ion-icon name="ios-person-outline"></ion-icon>\n              <p class="titl">Settings</p>\n            </a>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-toolbar>\n  \n  \n  </ion-footer>\n  \n\n<!-- footer part end  -->\n\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/app/app.html"*/'<ion-menu id="loggedInMenu" [content]="content">\n\n	<ion-header>\n		<ion-toolbar>\n			<ion-title>Categories</ion-title>\n		</ion-toolbar>\n	</ion-header>\n	\n	<ion-content class="outer-content">\n		<ion-list class="left-menu" *ngFor="let category of categoryList">\n			<button ion-item menuClose (click)="productList(category.Category.id)">\n				<ion-icon item-start><img src="{{image_url}}{{category.CategoryImage[0].originalpath}}" alt=""></ion-icon> {{category.Category.category_name}}\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<!--<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/connected.png" alt=""></ion-icon> Connected Home\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/speaker.png" alt=""></ion-icon> Speaker\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/ar-vr.png" alt=""></ion-icon> AR/VR\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/drone.png" alt=""></ion-icon> Drones\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/camera.png" alt=""></ion-icon> Cameras\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/grill.png" alt=""></ion-icon> Grill\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/charger.png" alt=""></ion-icon> Chargers\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/travel.png" alt=""></ion-icon> Travel and outdoor\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $50\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $100\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>\n		<ion-list class="left-menu">\n			<button ion-item menuClose (click)="openPage(p)">\n				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $500\n			</button>\n			<button ion-button outline class="follow">Follow</button>\n		</ion-list>-->\n    </ion-content>\n\n	<!--<ion-content class="outer-content">\n		<ion-list>\n			<button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">\n			<ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>\n			{{p.title}}\n			</button>\n		</ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          Account\n        </ion-list-header>\n        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">\n          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          Tutorial\n        </ion-list-header>\n        <button ion-item menuClose (click)="openTutorial()">\n          <ion-icon item-start name="hammer"></ion-icon>\n          Show Tutorial\n        </button>\n      </ion-list>\n\n    </ion-content>-->\n\n  </ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n\n\n\n<!--  footer Part start  -->\n<!-- <ion-tabs name="conference" *ngIf="!footerIsHidden">\n    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" tabUrlPath="conference-schedule"></ion-tab>\n    <ion-tab [root]="tab2Root" tabTitle="My Activity" tabIcon="heart"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="Social" tabIcon="people"></ion-tab>\n    <ion-tab [root]="tab4Root" tabTitle="Settings" tabIcon="cog"></ion-tab>\n</ion-tabs> -->\n\n<ion-footer *ngIf="!footerIsHidden" class="footer">\n    <ion-toolbar style=" padding: 0;">\n      <ion-grid style=" padding: 0;">\n        <ion-row class="row-bottom">\n          <ion-col text-center >\n              <a (click)="openPage(\'HomePage\')">\n                  <ion-icon name="home"></ion-icon>\n                  <p class="titl">Home</p>\n              </a>\n          </ion-col>\n          <ion-col text-center>\n            <a (click)="openPage(\'WishlistPage\')">\n              <ion-icon name="pricetags" ></ion-icon>\n              <p class="titl">Activity</p>\n            </a>\n          </ion-col>\n          <ion-col text-center>\n            <a (click)="openPage(\'CompanylistPage\')" >\n              <ion-icon name="ios-list-box-outline"></ion-icon>\n              <p class="titl">Social</p>\n            </a>\n          </ion-col>\n        \n          <ion-col text-center>\n            <a (click)="openPage(\'EditProfilePage\')">\n              <ion-icon name="ios-person-outline"></ion-icon>\n              <p class="titl">Settings</p>\n            </a>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-toolbar>\n  \n  \n  </ion-footer>\n  \n\n<!-- footer part end  -->\n\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_service_service__["a" /* ServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth__["a" /* AuthProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__providers_service_service__["a" /* ServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_service_service__["a" /* ServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _j || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=app.component.js.map

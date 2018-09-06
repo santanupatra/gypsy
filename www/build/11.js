@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 679:
+/***/ 680:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditProfilePageModule", function() { return EditProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeedPageModule", function() { return FeedPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_profile__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(698);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditProfilePageModule = /** @class */ (function () {
-    function EditProfilePageModule() {
+var FeedPageModule = /** @class */ (function () {
+    function FeedPageModule() {
     }
-    EditProfilePageModule = __decorate([
+    FeedPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */]),
             ],
         })
-    ], EditProfilePageModule);
-    return EditProfilePageModule;
+    ], FeedPageModule);
+    return FeedPageModule;
 }());
 
-//# sourceMappingURL=edit-profile.module.js.map
+//# sourceMappingURL=feed.module.js.map
 
 /***/ }),
 
-/***/ 696:
+/***/ 698:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(151);
@@ -57,72 +57,82 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// import { Component } from '@angular/core';
+// import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
 
 
 
 /**
- * Generated class for the EditProfilePage page.
+ * Generated class for the FeedPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var EditProfilePage = /** @class */ (function () {
-    function EditProfilePage(navCtrl, navParams, api, AuthService, alertCtrl, service) {
+var FeedPage = /** @class */ (function () {
+    function FeedPage(navCtrl, navParams, api, AuthService, alertCtrl, service) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.AuthService = AuthService;
         this.alertCtrl = alertCtrl;
         this.service = service;
-        //data:any;
-        this.data = {};
-        this.user_id = AuthService.getuserid();
+        this.sid = this.navParams.get('sid');
+        this.company_id = this.navParams.get('company_id');
+        //  alert(this.navParams.get('sid'));
+        // alert(this.navParams.get('company_id'));
+        //alert(this.sid);
+        if (this.sid == 1) {
+            this.facbookFeed(this.company_id);
+        }
+        else if (this.sid == 2) {
+            //this.twitterFeed(this.company_id);
+        }
+        else {
+            this.pinterestFeed(this.company_id);
+        }
     }
-    EditProfilePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditProfilePage');
-        this.myProfile();
+    FeedPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FeedPage');
     };
-    EditProfilePage.prototype.myProfile = function () {
+    FeedPage.prototype.facbookFeed = function (company_id) {
         var _this = this;
-        this.api.post('viewuser', { id: this.user_id }).subscribe(function (response) {
+        this.api.post('feedlistfb', { company_id: company_id }).subscribe(function (response) {
             console.log(response);
             if (response.Ack === 1) {
-                _this.userList = response.user_details;
-                _this.data = { email: response.user_details.User.email_address, first_name: response.user_details.User.first_name, last_name: response.user_details.User.last_name, phoneno: response.user_details.User.phoneno, address: response.user_details.User.address };
-                console.log(_this.data);
-            }
-            else {
+                _this.feedListFacebook = response.feed_list;
             }
         }, function (err) {
             _this.service.popup('Alert', 'Already Registered');
         });
     };
-    EditProfilePage.prototype.editProfile = function (data) {
+    FeedPage.prototype.twitterFeed = function (company_id) {
         var _this = this;
-        data.id = this.user_id;
-        this.api.post('editprofile', data).subscribe(function (response) {
+        this.api.post('companylist', { company_id: company_id }).subscribe(function (response) {
             console.log(response);
             if (response.Ack === 1) {
-                _this.afloginsuccess(response);
-                _this.AuthService.initializeUserData({ id: _this.user_id, first_name: response.user_details.User.first_name, last_name: response.user_details.User.last_name });
-                //this.myProfile(); 
-            }
-            else {
-                _this.service.popup('Alert', "Profile not Update");
+                _this.feedListTwitter = response.feed_list;
             }
         }, function (err) {
-            _this.service.popup('Alert', 'Something wrong');
+            _this.service.popup('Alert', 'Already Registered');
         });
     };
-    EditProfilePage.prototype.afloginsuccess = function (response) {
-        // this.navCtrl.setRoot('Success');
-        this.service.popup('Success', 'Profile update successfully');
+    FeedPage.prototype.pinterestFeed = function (company_id) {
+        var _this = this;
+        this.api.post('feedlistpinterest', { company_id: company_id }).subscribe(function (response) {
+            console.log(response);
+            if (response.Ack === 1) {
+                _this.feedListPinterest = response.feed_list;
+                console.log(_this.feedListPinterest);
+            }
+        }, function (err) {
+            _this.service.popup('Alert', 'Already Registered');
+        });
     };
-    EditProfilePage = __decorate([
+    FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-profile',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/edit-profile/edit-profile.html"*/'<!--\n  Generated template for the EditProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n    <ion-navbar no-border-bottom>\n      <button ion-button menuToggle>\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n      <ion-title> Edit Profile </ion-title>\n  \n      <ion-buttons end>\n        <!-- <button ion-button icon-only>\n           Save\n        </button> -->\n      </ion-buttons>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-list>\n    <ion-item class="brdr-0">\n      <ion-avatar>\n        <img src="assets/img/pro-pic.jpg">\n        <div class="edit-area"><ion-icon name="camera"></ion-icon></div>\n      </ion-avatar>\n    </ion-item>\n  \n    <div class="form-field">\n      <ion-label class="form-label" >First Name:</ion-label>\n      <ion-item>\n        <ion-input type="text" name="first_name" [(ngModel)]="data.first_name" value="" placeholder="Emma Megan"></ion-input>\n      </ion-item>\n    </div>\n\n    <div class="form-field">\n        <ion-label class="form-label" >Last Name:</ion-label>\n        <ion-item> \n          <ion-input type="text" name="last_name" [(ngModel)]="data.last_name" value="" placeholder="Emma Megan"></ion-input>\n        </ion-item>\n      </div>\n    \n  \n    <div class="form-field">\n      <ion-label class="form-label">Address:</ion-label>\n      <ion-item>\n        <ion-input type="text" name="address" [(ngModel)]="data.address" value="" placeholder="California C.A. USA"></ion-input>\n      </ion-item>\n    </div>\n  \n    <div class="form-field">\n      <ion-label class="form-label">Email:</ion-label>\n      <ion-item>\n        <ion-input readonly type="text" name="email" [(ngModel)]="data.email"  value="" placeholder="emmamegan@gmail.com"></ion-input>\n      </ion-item>\n    </div>\n  \n    <div class="form-field">\n      <ion-label class="form-label">Phone:</ion-label>\n      <ion-item>\n        <ion-input type="text" name="phoneno" [(ngModel)]="data.phoneno" value="" placeholder="589684423"></ion-input>\n      </ion-item>\n    </div>\n  \n    <div padding>\n      <button ion-button block color="danger" (click)="editProfile(data)">Submit</button>\n    </div>\n       \n  \n      \n  \n    \n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/edit-profile/edit-profile.html"*/,
+            selector: 'page-feed',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/feed/feed.html"*/'<!--\n  Generated template for the FeedPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar no-border-bottom>\n    <button ion-button menuToggle>\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n    <ion-title> Feed </ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content *ngIf="sid==1">\n \n  <ion-card *ngFor="let feed of feedListFacebook">\n  \n    <ion-item>\n      <ion-avatar item-start>\n        <img src="assets/img/like-b.jpg" alt="">\n      </ion-avatar>      \n      <h2>Leonardo Taylor</h2>\n      <p>California C.A. USA</p>\n      <ion-note item-end="" class="note note-ios">5m</ion-note>\n    </ion-item>\n  \n    <img src="{{feed.image}}" alt="">\n  \n    <ion-card-content class="pb-0">\n      <h2>{{feed.title}}</h2>\n      <ion-item class="brdr-b">\n        <span item-start>\n          <img class="img-pic" src="assets/img/thumb-b.png" alt="">\n           (139)\n        </span>\n        <span item-start>\n          <img class="img-pic" src="assets/img/heart.png" alt="">\n           (38)\n        </span>\n      </ion-item>\n      <!-- <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/like-a.jpg" alt="">\n        </ion-avatar>\n        <p class="comment">Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa.\n          This is heavy.</p>\n      </ion-item>\n      <ion-row>\n        <ion-col col-9>\n          <ion-textarea></ion-textarea>\n        </ion-col>\n        <ion-col col-3>\n          <button ion-button color="danger">Post</button>\n        </ion-col>\n      </ion-row> -->\n    </ion-card-content>\n  </ion-card>\n  <!-- <ion-card>\n  \n    <ion-item>\n      <ion-avatar item-start>\n        <img src="assets/img/like-b.jpg" alt="">\n      </ion-avatar>\n      <h2>Leonardo Taylor</h2>\n      <p>California C.A. USA</p>\n      <ion-note item-end="" class="note note-ios">5m</ion-note>\n    </ion-item>\n  \n    <img src="assets/img/feed-ban.jpg" alt="">\n  \n    <ion-card-content class="pb-0">\n      <h2>Nikon D90 DSLR with 18-55 lense...</h2>\n      <ion-item class="brdr-b">\n        <span item-start>\n          <img class="img-pic" src="assets/img/thumb-b.png" alt=""> (139)\n        </span>\n        <span item-start>\n          <img class="img-pic" src="assets/img/heart.png" alt=""> (38)\n        </span>\n      </ion-item>\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/like-a.jpg" alt="">\n        </ion-avatar>\n        <p class="comment">Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!\n          Whoa. This is heavy.</p>\n      </ion-item>\n      <ion-row>\n        <ion-col col-9>\n          <ion-textarea></ion-textarea>\n        </ion-col>\n        <ion-col col-3>\n          <button ion-button color="danger">Post</button>\n        </ion-col>\n      </ion-row>\n    </ion-card-content>\n  </ion-card> -->\n</ion-content>\n\n<ion-content *ngIf="sid==2">\n    <h4>Working on this </h4>\n     <!-- <ion-card>\n     \n       <ion-item>\n         <ion-avatar item-start>\n           <img src="assets/img/like-b.jpg" alt="">\n         </ion-avatar>      \n         <h2>Leonardo Taylor</h2>\n         <p>California C.A. USA</p>\n         <ion-note item-end="" class="note note-ios">5m</ion-note>\n       </ion-item>\n     \n       <img src="{{feed.image}}" alt="">\n     \n       <ion-card-content class="pb-0">\n         <h2>{{feed.title}}</h2>\n         <ion-item class="brdr-b">\n           <span item-start>\n             <img class="img-pic" src="assets/img/thumb-b.png" alt="">\n              (139)\n           </span>\n           <span item-start>\n             <img class="img-pic" src="assets/img/heart.png" alt="">\n              (38)\n           </span>\n         </ion-item>\n         <ion-item>\n           <ion-avatar item-start>\n             <img src="assets/img/like-a.jpg" alt="">\n           </ion-avatar>\n           <p class="comment">Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa.\n             This is heavy.</p>\n         </ion-item>\n         <ion-row>\n           <ion-col col-9>\n             <ion-textarea></ion-textarea>\n           </ion-col>\n           <ion-col col-3>\n             <button ion-button color="danger">Post</button>\n           </ion-col>\n         </ion-row>\n       </ion-card-content>\n     </ion-card> -->\n   \n   </ion-content>\n\n\n   <ion-content *ngIf="sid==3">\n      \n       <ion-card *ngFor="let feed of feedListPinterest">\n       \n         <ion-item>\n           <ion-avatar item-start>\n             <img src="assets/img/like-b.jpg" alt="">\n           </ion-avatar>      \n           <h2>Leonardo Taylor</h2>\n           <p>California C.A. USA</p>\n           <ion-note item-end="" class="note note-ios">5m</ion-note>\n         </ion-item>\n         \n         <img src="{{feed.image}}" alt="" (click)="gotofeedDetails()">\n       \n         <ion-card-content class="pb-0">\n           <h2>{{feed.title[0]}}</h2>\n           <ion-item class="brdr-b">\n             <span item-start>\n               <img class="img-pic" src="assets/img/thumb-b.png" alt="">\n                (139)\n             </span>\n             <span item-start>\n               <img class="img-pic" src="assets/img/heart.png" alt="">\n                (38)\n             </span>\n           </ion-item>\n           <!-- <ion-item>\n             <ion-avatar item-start>\n               <img src="assets/img/like-a.jpg" alt="">\n             </ion-avatar>\n             <p class="comment">Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa.\n               This is heavy.</p>\n           </ion-item>\n           <ion-row>\n             <ion-col col-9>\n               <ion-textarea></ion-textarea>\n             </ion-col>\n             <ion-col col-3>\n               <button ion-button color="danger">Post</button>\n             </ion-col>\n           </ion-row> -->\n         </ion-card-content>\n       </ion-card>\n     \n     </ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/feed/feed.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -130,11 +140,11 @@ var EditProfilePage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */]])
-    ], EditProfilePage);
-    return EditProfilePage;
+    ], FeedPage);
+    return FeedPage;
 }());
 
-//# sourceMappingURL=edit-profile.js.map
+//# sourceMappingURL=feed.js.map
 
 /***/ })
 

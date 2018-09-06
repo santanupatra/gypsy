@@ -118,6 +118,9 @@ logout(){
 openPage(page){
   this.nav.push(page);
 }
+productList(id){
+  this.nav.push("ProductListPage", {id:id});
+}
 
 
 
