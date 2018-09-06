@@ -5,6 +5,7 @@ import { IonicPage, NavController, NavParams,AlertController,MenuController } fr
 import { ApiProvider } from '../../providers/api/api';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ServiceProvider } from '../../providers/service/service';
+import { concat } from 'rxjs/operator/concat';
 
 /**
  * Generated class for the WishlistPage page.
@@ -24,6 +25,7 @@ export class WishlistPage {
   user_id:any;
   message:any;
   is_exist:any;
+  likelist:any;
   
 
 
@@ -45,8 +47,8 @@ export class WishlistPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WishlistPage');
     this.mywhishList();
+    this.mylikelist();
   }
-
 
 
   mywhishList(){
@@ -63,6 +65,27 @@ export class WishlistPage {
     }
     }, err => {
     	this.service.popup('Alert', 'Something went wrong');
+    });
+
+  }
+
+
+  mylikelist()
+  {
+    this.api.likelist('my_like_list',{user_id:this.user_id}).subscribe((response : any)  => {
+      console.log(response);
+
+      if(response.ACK === 1){
+        this.likelist = response.likelist;
+        this.is_exist = 1;
+        console.log(this.likelist)
+  
+      }else{
+        
+        this.is_exist = 0;
+      }
+      }, err => {
+        this.service.popup('Alert', 'Something went wrong');
     });
 
   }
