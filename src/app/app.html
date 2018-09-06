@@ -8,7 +8,7 @@
 	
 	<ion-content class="outer-content">
 		<ion-list class="left-menu" *ngFor="let category of categoryList">
-			<button ion-item menuClose (click)="openPage(p)">
+			<button ion-item menuClose (click)="productList(category.Category.id)">
 				<ion-icon item-start><img src="{{image_url}}{{category.CategoryImage[0].originalpath}}" alt=""></ion-icon> {{category.Category.category_name}}
 			</button>
 			<button ion-button outline class="follow">Follow</button>
