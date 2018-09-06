@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 678:
+/***/ 681:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetailPageModule", function() { return DetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FollowPageModule", function() { return FollowPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__detail__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__follow__ = __webpack_require__(700);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DetailPageModule = /** @class */ (function () {
-    function DetailPageModule() {
+var FollowPageModule = /** @class */ (function () {
+    function FollowPageModule() {
     }
-    DetailPageModule = __decorate([
+    FollowPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__detail__["a" /* DetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__follow__["a" /* FollowPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__detail__["a" /* DetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__follow__["a" /* FollowPage */]),
             ],
         })
-    ], DetailPageModule);
-    return DetailPageModule;
+    ], FollowPageModule);
+    return FollowPageModule;
 }());
 
-//# sourceMappingURL=detail.module.js.map
+//# sourceMappingURL=follow.module.js.map
 
 /***/ }),
 
-/***/ 694:
+/***/ 700:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetailPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FollowPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_service__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,59 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
 /**
- * Generated class for the DetailPage page.
+ * Generated class for the FollowPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var DetailPage = /** @class */ (function () {
-    function DetailPage(navCtrl, navParams, api, AuthService, alertCtrl, service) {
+var FollowPage = /** @class */ (function () {
+    function FollowPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.api = api;
-        this.AuthService = AuthService;
-        this.alertCtrl = alertCtrl;
-        this.service = service;
-        this.id = this.navParams.get('id');
-        // alert(this.id);
-        this.user_id = AuthService.getuserid();
-        this.alsolikeList();
     }
-    DetailPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad DetailPage');
+    FollowPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FollowPage');
     };
-    DetailPage.prototype.alsolikeList = function () {
-        var _this = this;
-        this.api.post('alsolikelist', { product_id: this.id, user_id: this.user_id }).subscribe(function (response) {
-            console.log(response);
-            if (response.Ack === 1) {
-                _this.prolikeList = response.like_details;
-                _this.url = "http://111.93.169.90/";
-                console.log(_this.prolikeList);
-            }
-        }, function (err) {
-            _this.service.popup('Alert', 'Already Registered');
-        });
-    };
-    DetailPage = __decorate([
+    FollowPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-detail',template:/*ion-inline-start:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/detail/detail.html"*/'<!--\n  Generated template for the DetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title> #wearables </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="presentPopover($event)">\n        <ion-icon name="search"></ion-icon>\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n\n  <ion-content>\n    <ion-list>  \n      <ion-card>\n        <div class="card-pic-ban">\n          <img src="assets/img/detail-ban.jpg">\n        </div>\n        \n        <ion-card-content>\n          <ion-row>\n            <ion-col col-7>\n              <ion-card-title class="ban-title"> \n                   Drone with 18 Megapixel....\n              </ion-card-title>\n              <div class="star-area">\n                <span>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star"></ion-icon>\n                  <ion-icon name="star-half"></ion-icon>\n                </span>\n      \n                <span class="rate">(4.5)</span>\n              </div>\n              <p class="price-b">$12.85</p>\n            </ion-col>\n            <ion-col col-5>\n              <div class="like-total-b">\n                <div class="like-area">\n                  <button ion-button>\n                    <img src="assets/img/thumb.png" alt="">\n                    <span class="like-nmbr">(139)</span>\n                  </button>\n                  <h3>Like</h3>\n                </div>\n                <div class="like-area">\n                  <button ion-button>\n                    <img src="assets/img/heart.png" alt="">\n                    <span class="like-nmbr">(38)</span>\n                  </button>\n                  <h3>WishList</h3>\n                </div>\n              </div>\n              <div class="social-area">\n                <img src="assets/img/fb-icon.png" alt="">\n                <img src="assets/img/twtr-icon.png" alt="">\n                <img src="assets/img/pint-icon.png" alt="">\n              </div>\n            </ion-col>\n          </ion-row>\n          <h2 class="pro-des-tittle">Product Description:</h2>\n          <p class="pro-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlipo labore et dolore magna aliqua.</p>\n          <p class="pro-des">Ut enim ad minim veniam, quis nostrud exercitain tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis in vol\n          cillum dolore eu.</p>\n          <button ion-button color="secondary"> <ion-icon name="cart"></ion-icon> Add to cart</button>\n        </ion-card-content>\n      </ion-card>\n\n\n        <ion-list-header class="item item-ios list-header list-header-ios">\n          People also like this\n        </ion-list-header>\n\n      \n      <div class="new-arrival">\n        <ion-card *ngFor="let pro of prolikeList">\n          <img class="card-pic" src="{{url}}{{pro.ProductImage}}">\n          <ion-card-content>\n            <ion-row>\n              <ion-col class="pl-0 pr-0">\n                <ion-card-title>\n                 {{pro.Product.product_name}}\n                </ion-card-title>\n                <div class="star-area">\n                  <span>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star-half"></ion-icon>\n                  </span>\n  \n                  <span class="rate">(4.5)</span>\n                </div>\n                <p class="price">${{pro.Product.price}}</p>\n              </ion-col>\n              <ion-col class="pl-0 pr-0">\n                <div class="like-total">\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/thumb-b.png" alt="">\n                      <span class="like-nmbr">(139)</span>\n                    </button>\n                    <h3>Like</h3>\n                  </div>\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/heart-b.png" alt="">\n                      <span class="like-nmbr">(38)</span>\n                    </button>\n                    <h3>WishList</h3>\n                  </div>\n                </div>\n                <div class="social-area">\n                  <img src="assets/img/fb-icon.png" alt="">\n                  <img src="assets/img/twtr-icon.png" alt="">\n                  <img src="assets/img/pint-icon.png" alt="">\n                </div>\n              </ion-col>\n            </ion-row>\n          </ion-card-content>\n        </ion-card>\n  \n        <!-- <ion-card>\n          <img class="card-pic" src="assets/img/drone.jpg">\n          <ion-card-content>\n            <ion-row>\n              <ion-col class="pl-0 pr-0">\n                <ion-card-title>\n                  Drone with camera\n                </ion-card-title>\n                <div class="star-area">\n                  <span>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star-half"></ion-icon>\n                  </span>\n  \n                  <span class="rate">(4.5)</span>\n                </div>\n                <p class="price">$12.85</p>\n              </ion-col>\n              <ion-col class="pl-0 pr-0">\n                <div class="like-total">\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/thumb-b.png" alt="">\n                      <span class="like-nmbr">(139)</span>\n                    </button>\n                    <h3>Like</h3>\n                  </div>\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/heart-b.png" alt="">\n                      <span class="like-nmbr">(38)</span>\n                    </button>\n                    <h3>WishList</h3>\n                  </div>\n                </div>\n                <div class="social-area">\n                  <img src="assets/img/fb-icon.png" alt="">\n                  <img src="assets/img/twtr-icon.png" alt="">\n                  <img src="assets/img/pint-icon.png" alt="">\n                </div>\n              </ion-col>\n            </ion-row>\n          </ion-card-content>\n        </ion-card>\n  \n        <ion-card>\n          <img class="card-pic" src="assets/img/watch.jpg">\n          <ion-card-content>\n            <ion-row>\n              <ion-col class="pl-0 pr-0">\n                <ion-card-title>\n                  Wrist Watch\n                </ion-card-title>\n                <div class="star-area">\n                  <span>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star-half"></ion-icon>\n                  </span>\n  \n                  <span class="rate">(4.5)</span>\n                </div>\n                <p class="price">$12.85</p>\n              </ion-col>\n              <ion-col class="pl-0 pr-0">\n                <div class="like-total">\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/thumb-b.png" alt="">\n                      <span class="like-nmbr">(139)</span>\n                    </button>\n                    <h3>Like</h3>\n                  </div>\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/heart-b.png" alt="">\n                      <span class="like-nmbr">(38)</span>\n                    </button>\n                    <h3>WishList</h3>\n                  </div>\n                </div>\n                <div class="social-area">\n                  <img src="assets/img/fb-icon.png" alt="">\n                  <img src="assets/img/twtr-icon.png" alt="">\n                  <img src="assets/img/pint-icon.png" alt="">\n                </div>\n              </ion-col>\n            </ion-row>\n          </ion-card-content>\n        </ion-card>\n  \n        <ion-card>\n          <img class="card-pic" src="assets/img/drone.jpg">\n          <ion-card-content>\n            <ion-row>\n              <ion-col class="pl-0 pr-0">\n                <ion-card-title>\n                  Drone with camera\n                </ion-card-title>\n                <div class="star-area">\n                  <span>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star"></ion-icon>\n                    <ion-icon name="star-half"></ion-icon>\n                  </span>\n  \n                  <span class="rate">(4.5)</span>\n                </div>\n                <p class="price">$12.85</p>\n              </ion-col>\n              <ion-col class="pl-0 pr-0">\n                <div class="like-total">\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/thumb-b.png" alt="">\n                      <span class="like-nmbr">(139)</span>\n                    </button>\n                    <h3>Like</h3>\n                  </div>\n                  <div class="like-area">\n                    <button ion-button>\n                      <img src="assets/img/heart-b.png" alt="">\n                      <span class="like-nmbr">(38)</span>\n                    </button>\n                    <h3>WishList</h3>\n                  </div>\n                </div>\n                <div class="social-area">\n                  <img src="assets/img/fb-icon.png" alt="">\n                  <img src="assets/img/twtr-icon.png" alt="">\n                  <img src="assets/img/pint-icon.png" alt="">\n                </div>\n              </ion-col>\n            </ion-row>\n          </ion-card-content>\n        </ion-card> -->\n  \n  \n      </div>\n  \n    </ion-list>\n  \n  \n  </ion-content>\n\n</ion-content>\n'/*ion-inline-end:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/detail/detail.html"*/,
+            selector: 'page-follow',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/follow/follow.html"*/'<!--\n  Generated template for the FollowPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>follow</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/follow/follow.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */]])
-    ], DetailPage);
-    return DetailPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], FollowPage);
+    return FollowPage;
 }());
 
-//# sourceMappingURL=detail.js.map
+//# sourceMappingURL=follow.js.map
 
 /***/ })
 

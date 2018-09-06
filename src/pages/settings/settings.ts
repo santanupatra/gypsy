@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, Events } from 'ionic-angular';
 
 /**
  * Generated class for the SettingsPage page.
@@ -14,15 +14,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public events: Events,
+  ) {
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
+    this.events.publish('hideFooter', { isHidden: false});
   }
 
   openPage(page){
     this.navCtrl.push(page);
   }
+
+  logout(){
+    localStorage.removeItem("authID");
+    localStorage.setItem("authID", "");
+    localStorage.removeItem("authTYPE");
+    this.navCtrl.push('LoginPage');
+  }
+  
 
 }

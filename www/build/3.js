@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 689:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(708);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(707);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var SettingsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 708:
+/***/ 707:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63,24 +63,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SettingsPage = /** @class */ (function () {
-    function SettingsPage(navCtrl, navParams) {
+    function SettingsPage(navCtrl, navParams, events) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.events = events;
     }
     SettingsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SettingsPage');
+        this.events.publish('hideFooter', { isHidden: false });
     };
     SettingsPage.prototype.openPage = function (page) {
         this.navCtrl.push(page);
     };
+    SettingsPage.prototype.logout = function () {
+        localStorage.removeItem("authID");
+        localStorage.setItem("authID", "");
+        localStorage.removeItem("authTYPE");
+        this.navCtrl.push('LoginPage');
+    };
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-settings',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>    \n        <ion-list>   \n          \n    \n          <button menuClose ion-item icon-left (click)="openPage(\'EditProfilePage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-person item-icon" aria-label="person" ng-reflect-name="person"></ion-icon>\n           My Profile\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'WishlistPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-heart item-icon" aria-label="heart" ng-reflect-name="heart"></ion-icon>\n           My Activity\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'CompanylistPage\')">\n            <ion-icon item-left name="ios-list-box-outline" ></ion-icon>\n           Company List\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ReferFriendPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-people item-icon" aria-label="people" ng-reflect-name="people"></ion-icon>\n           Reffer Friend\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ChangePasswordPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-key item-icon" aria-label="key" ng-reflect-name="key"></ion-icon>\n           Change Password\n          </button>\n    \n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ReviewPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-star item-icon icon-md-primary" aria-label="star" ng-reflect-name="star" ng-reflect-color="primary"></ion-icon>\n    \n             My Review\n            </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'PrivacyPage\')">\n            <ion-icon item-left name="ios-list-box-outline" ></ion-icon>\n             Privacy & Policy\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'TermsconditionPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-copy item-icon" aria-label="copy" ng-reflect-name="copy"></ion-icon>\n               Terms & Condition\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="logout()">\n            <ion-icon item-left name="md-log-out"></ion-icon>\n            Logout\n          </button>\n    \n        </ion-list>\n      </ion-content>\n\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/settings/settings.html"*/,
+            selector: 'page-settings',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding> \n      <div style="padding-bottom:70px">\n        <ion-list>      \n    \n          <button menuClose ion-item icon-left (click)="openPage(\'EditProfilePage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-person item-icon" aria-label="person" ng-reflect-name="person"></ion-icon>\n           My Profile\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'WishlistPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-heart item-icon" aria-label="heart" ng-reflect-name="heart"></ion-icon>\n           My Activity\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'CompanylistPage\')">\n            <ion-icon item-left name="ios-list-box-outline" ></ion-icon>\n           Company List\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ReferFriendPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-people item-icon" aria-label="people" ng-reflect-name="people"></ion-icon>\n           Reffer Friend\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ChangePasswordPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-key item-icon" aria-label="key" ng-reflect-name="key"></ion-icon>\n           Change Password\n          </button>\n    \n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ReviewPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-star item-icon icon-md-primary" aria-label="star" ng-reflect-name="star" ng-reflect-color="primary"></ion-icon>\n    \n             My Review\n            </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'PrivacyPage\')">\n            <ion-icon item-left name="ios-list-box-outline" ></ion-icon>\n             Privacy & Policy\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'TermsconditionPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-copy item-icon" aria-label="copy" ng-reflect-name="copy"></ion-icon>\n               Terms & Condition\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="logout()">\n            <ion-icon item-left name="md-log-out"></ion-icon>\n            Logout\n          </button>\n    \n        </ion-list>\n      </div>\n      </ion-content>\n\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/settings/settings.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], SettingsPage);
     return SettingsPage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=settings.js.map
