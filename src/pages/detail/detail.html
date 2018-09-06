@@ -27,8 +27,14 @@
     <ion-list>  
       <ion-card>
         <div class="card-pic-ban">
-          <img src="assets/img/detail-ban.jpg">
+            <ion-slides pager >
+                <ion-slide  *ngFor="let item of productimages"><img  *ngIf="productimages.length != 0" src="{{imageurl+item.originalpath}}" alt="">
+                  <img *ngIf="productimages.length == 0" src="assets/img/detail-ban.jpg"alt="">
+              
+                </ion-slide></ion-slides>
+          <!-- <img src="assets/img/detail-ban.jpg"> -->
         </div>
+       
         
         <ion-card-content>
           <ion-row>
@@ -36,7 +42,8 @@
 
              
               <ion-card-title class="ban-title"> 
-                   Drone with 18 Megapixel....
+                {{productDetails.product_name}}
+                   <!-- Drone with 18 Megapixel.... -->
               </ion-card-title>
               <div class="star-area">
                 <span>
@@ -78,9 +85,9 @@
             </ion-col>
           </ion-row>
           <h2 class="pro-des-tittle">Product Description:</h2>
-          <p class="pro-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlipo labore et dolore magna aliqua.</p>
-          <p class="pro-des">Ut enim ad minim veniam, quis nostrud exercitain tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis in vol
-          cillum dolore eu.</p>
+          <p class="pro-des">{{productDetails.product_description}}</p>
+          <!-- <p class="pro-des">Ut enim ad minim veniam, quis nostrud exercitain tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis in vol
+          cillum dolore eu.</p> -->
           <button ion-button color="secondary"> <ion-icon name="cart"></ion-icon> Add to cart</button>
         </ion-card-content>
       </ion-card>

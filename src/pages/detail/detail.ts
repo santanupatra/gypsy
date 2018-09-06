@@ -28,6 +28,8 @@ export class DetailPage {
   prolikeCount:any;
   heart = false;
   like = false;
+  productimages:any;
+  imageurl:any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -71,7 +73,10 @@ export class DetailPage {
     this.api.post('productdetails',{product_id:id, user_id:this.user_id}).subscribe((response : any)  => {
       console.log(response);
       if(response.Ack === 1){
-        this.productDetails = response.product_details.Product;        
+        this.productDetails = response.product_details.Product;
+        this.productimages= response.product_details.ProductImage;
+        this.imageurl=response.image_url;
+
         if(response.like >= 1){
           this.like = true;   
         }
@@ -81,6 +86,8 @@ export class DetailPage {
         }
 
         console.log(this.productDetails);
+        console.log('images',this.productimages);
+        console.log('imageurl',this.imageurl);
         this.prolikeCount = response.product_details.Like.length;
       //  alert(this.prolikeCount);
         this.url = "http://111.93.169.90/";

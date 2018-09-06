@@ -126,7 +126,9 @@ var ChangePasswordPage = /** @class */ (function () {
     };
     ChangePasswordPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+
             selector: 'page-change-password',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/change-password/change-password.html"*/'<!--\n  Generated template for the ChangePasswordPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n  <ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>     \n      <ion-title>Change Password</ion-title>   \n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n  <div class="logo">\n    <img src="assets/img/appicon.png" alt="Ionic logo">\n  </div>\n\n  <form [formGroup]="changeForm" novalidate>\n    <ion-list>\n\n      <ion-item>\n        <ion-input type="password" formControlName="old_password" value="" placeholder="Old Password" required></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="password" formControlName="new_password" placeholder="New Password" required></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="password" formControlName="conf_password" placeholder="Confirm Password" required></ion-input>\n      </ion-item>\n\n      <button ion-button color="danger" [disabled]="!changeForm.valid" block (click)="changePassword(changeForm.value)" block>Save</button>\n    </ion-list>\n\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/change-password/change-password.html"*/,
+
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
