@@ -210,15 +210,15 @@ webpackEmptyAsyncContext.id = 164;
 
 var map = {
 	"../pages/account/account.module": [
-		674,
+		675,
 		18
 	],
 	"../pages/cart/cart.module": [
-		675,
+		676,
 		17
 	],
 	"../pages/change-password/change-password.module": [
-		676,
+		674,
 		16
 	],
 	"../pages/companylist/companylist.module": [
@@ -226,11 +226,11 @@ var map = {
 		15
 	],
 	"../pages/detail/detail.module": [
-		678,
+		679,
 		14
 	],
 	"../pages/edit-profile/edit-profile.module": [
-		679,
+		678,
 		13
 	],
 	"../pages/feed/feed.module": [
@@ -242,11 +242,11 @@ var map = {
 		11
 	],
 	"../pages/forgot-password/forgot-password.module": [
-		682,
+		685,
 		10
 	],
 	"../pages/home/home.module": [
-		683,
+		682,
 		9
 	],
 	"../pages/login/login.module": [
@@ -254,7 +254,7 @@ var map = {
 		8
 	],
 	"../pages/privacy/privacy.module": [
-		685,
+		683,
 		7
 	],
 	"../pages/product-list/product-list.module": [
@@ -266,23 +266,23 @@ var map = {
 		5
 	],
 	"../pages/review/review.module": [
-		688,
+		692,
 		4
 	],
 	"../pages/settings/settings.module": [
-		689,
+		688,
 		3
 	],
 	"../pages/signup/signup.module": [
-		690,
+		689,
 		2
 	],
 	"../pages/termscondition/termscondition.module": [
-		691,
+		690,
 		1
 	],
 	"../pages/wishlist/wishlist.module": [
-		692,
+		691,
 		0
 	]
 };
@@ -361,25 +361,25 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/change-password/change-password.module#ChangePasswordPageModule', name: 'ChangePasswordPage', segment: 'change-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/change-password/change-password.module#ChangePasswordPageModule', name: 'ChangePasswordPage', segment: 'change-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/companylist/companylist.module#CompanylistPageModule', name: 'CompanylistPage', segment: 'companylist', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/follow/follow.module#FollowPageModule', name: 'FollowPage', segment: 'follow', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/privacy/privacy.module#PrivacyPageModule', name: 'PrivacyPage', segment: 'privacy', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/refer-friend/refer-friend.module#ReferFriendPageModule', name: 'ReferFriendPage', segment: 'refer-friend', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/review/review.module#ReviewPageModule', name: 'ReviewPage', segment: 'review', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/termscondition/termscondition.module#TermsconditionPageModule', name: 'TermsconditionPage', segment: 'termscondition', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/wishlist/wishlist.module#WishlistPageModule', name: 'WishlistPage', segment: 'wishlist', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/wishlist/wishlist.module#WishlistPageModule', name: 'WishlistPage', segment: 'wishlist', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/review/review.module#ReviewPageModule', name: 'ReviewPage', segment: 'review', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],

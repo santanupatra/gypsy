@@ -1,14 +1,14 @@
 webpackJsonp([15],{
 
-/***/ 674:
+/***/ 677:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountPageModule", function() { return AccountPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CompanylistPageModule", function() { return CompanylistPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__companylist__ = __webpack_require__(696);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AccountPageModule = /** @class */ (function () {
-    function AccountPageModule() {
+var CompanylistPageModule = /** @class */ (function () {
+    function CompanylistPageModule() {
     }
-    AccountPageModule = __decorate([
+    CompanylistPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */],
+                __WEBPACK_IMPORTED_MODULE_2__companylist__["a" /* CompanylistPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__companylist__["a" /* CompanylistPage */]),
             ],
         })
-    ], AccountPageModule);
-    return AccountPageModule;
+    ], CompanylistPageModule);
+    return CompanylistPageModule;
 }());
 
-//# sourceMappingURL=account.module.js.map
+//# sourceMappingURL=companylist.module.js.map
 
 /***/ }),
 
-/***/ 690:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanylistPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_service__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,67 +59,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-//import { UserData } from '../../providers/user-data';
-var AccountPage = /** @class */ (function () {
-    function AccountPage(alertCtrl, nav) {
+
+
+
+/**
+ * Generated class for the CompanylistPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var CompanylistPage = /** @class */ (function () {
+    function CompanylistPage(navCtrl, navParams, api, AuthService, alertCtrl, service) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.api = api;
+        this.AuthService = AuthService;
         this.alertCtrl = alertCtrl;
-        this.nav = nav;
+        this.service = service;
     }
-    AccountPage.prototype.ngAfterViewInit = function () {
-        //this.getUsername();
+    CompanylistPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CompanylistPage');
+        this.getCompanylist();
     };
-    AccountPage.prototype.updatePicture = function () {
-        console.log('Clicked to update picture');
-    };
-    // Present an alert with the current username populated
-    // clicking OK will update the username and display it
-    // clicking Cancel will close the alert and do nothing
-    AccountPage.prototype.changeUsername = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Change Username',
-            buttons: [
-                'Cancel'
-            ]
-        });
-        alert.addInput({
-            name: 'username',
-            value: this.username,
-            placeholder: 'username'
-        });
-        alert.addButton({
-            text: 'Ok',
-            handler: function (data) {
-                // this.userData.setUsername(data.username);
-                // this.getUsername();
+    CompanylistPage.prototype.getCompanylist = function () {
+        var _this = this;
+        this.api.post('companylist', { user_id: '' }).subscribe(function (response) {
+            console.log(response);
+            if (response.Ack === 1) {
+                //  this.afloginsuccess(response);
+                _this.companyList = response.full_list;
+                _this.image_url = response.image_url;
             }
+            else {
+                _this.service.popup('Alert', 'Wrong EmailId & Password');
+            }
+        }, function (err) {
+            _this.service.popup('Alert', 'Already Registered');
         });
-        alert.present();
     };
-    // getUsername() {
-    //   this.userData.getUsername().then((username) => {
-    //     this.username = username;
-    //   });
-    // }
-    AccountPage.prototype.changePassword = function () {
-        console.log('Clicked to change password');
+    CompanylistPage.prototype.gotoFeed = function (company_id, id) {
+        this.navCtrl.push('FeedPage', { company_id: company_id, sid: id });
+        //  this.facbookFeed(company_id);
+        //  this.twitterFeed(company_id);
+        //  this.pinterestFeed(company_id);
     };
-    // logout() {
-    //   this.userData.logout();
-    //   this.nav.setRoot('LoginPage');
-    // }
-    AccountPage.prototype.support = function () {
-        this.nav.push('SupportPage');
-    };
-    AccountPage = __decorate([
+    CompanylistPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-account',template:/*ion-inline-start:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/account/account.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Account</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="outer-content">\n  <div padding-top text-center *ngIf="username">\n    <img src="http://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">\n    <h2>{{username}}</h2>\n\n    <ion-list inset>\n      <button ion-item (click)="updatePicture()">Update Picture</button>\n      <button ion-item (click)="changeUsername()">Change Username</button>\n      <button ion-item (click)="changePassword()">Change Password</button>\n      <button ion-item (click)="support()">Support</button>\n      <button ion-item (click)="logout()">Logout</button>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/account/account.html"*/
+            selector: 'page-companylist',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/companylist/companylist.html"*/'<!--\n  Generated template for the CartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>cart</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n<ion-header>\n  <ion-navbar no-border-bottom>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title> Company List </ion-title>\n    \n    <ion-buttons end class="position-rel">\n      <div class="cart-amnt">2</div>\n      <button ion-button icon-only >\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card *ngFor="let listcompany of companyList"  >\n    <ion-item>\n      <ion-thumbnail item-start>\n        <img src="{{image_url}}{{listcompany.Company.image}}">\n      </ion-thumbnail>\n      <h2>{{listcompany.Company.company_name}}</h2>\n      <!-- <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p> -->\n      <!-- <h2 class="price">$ 27.25</h2> -->\n          <div class="social-area">\n            <img (click)="gotoFeed(listcompany.Company.id,1)" *ngIf="listcompany.Company.fb_name !=\'\'" src="assets/img/fb-icon.png" alt="">\n            <img (click)="gotoFeed(listcompany.Company.id,2)" *ngIf="listcompany.Company.twitter_name !=\'\'" src="assets/img/twtr-icon.png" alt="">\n            <img (click)="gotoFeed(listcompany.Company.id,3)" *ngIf="listcompany.Company.pinterest_name !=\'\'" src="assets/img/pint-icon.png" alt="">\n          </div>\n    </ion-item>\n  </ion-card>\n<!--   \n  <ion-card>\n    <ion-item>\n      <ion-thumbnail item-start>\n        <img src="assets/img/nikon.jpg">\n      </ion-thumbnail>\n      <h2>Nikon D-90 DSLR</h2>\n      <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n      <h2 class="price">$ 39.99</h2>\n      <div class="social-area">\n        <img src="assets/img/fb-icon.png" alt="">\n        <img src="assets/img/twtr-icon.png" alt="">\n        <img src="assets/img/pint-icon.png" alt="">\n      </div>\n    </ion-item>\n  </ion-card> -->\n\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/companylist/companylist.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
-    ], AccountPage);
-    return AccountPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */]])
+    ], CompanylistPage);
+    return CompanylistPage;
 }());
 
-//# sourceMappingURL=account.js.map
+//# sourceMappingURL=companylist.js.map
 
 /***/ })
 

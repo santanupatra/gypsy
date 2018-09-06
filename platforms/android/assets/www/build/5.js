@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 684:
+/***/ 687:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivacyPageModule", function() { return PrivacyPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReferFriendPageModule", function() { return ReferFriendPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__privacy__ = __webpack_require__(700);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__refer_friend__ = __webpack_require__(706);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PrivacyPageModule = /** @class */ (function () {
-    function PrivacyPageModule() {
+var ReferFriendPageModule = /** @class */ (function () {
+    function ReferFriendPageModule() {
     }
-    PrivacyPageModule = __decorate([
+    ReferFriendPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__privacy__["a" /* PrivacyPage */],
+                __WEBPACK_IMPORTED_MODULE_2__refer_friend__["a" /* ReferFriendPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__privacy__["a" /* PrivacyPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__refer_friend__["a" /* ReferFriendPage */]),
             ],
         })
-    ], PrivacyPageModule);
-    return PrivacyPageModule;
+    ], ReferFriendPageModule);
+    return ReferFriendPageModule;
 }());
 
-//# sourceMappingURL=privacy.module.js.map
+//# sourceMappingURL=refer-friend.module.js.map
 
 /***/ }),
 
-/***/ 700:
+/***/ 706:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrivacyPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReferFriendPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,29 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the PrivacyPage page.
+ * Generated class for the ReferFriendPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var PrivacyPage = /** @class */ (function () {
-    function PrivacyPage(navCtrl, navParams) {
+var ReferFriendPage = /** @class */ (function () {
+    function ReferFriendPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    PrivacyPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PrivacyPage');
+    ReferFriendPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ReferFriendPage');
     };
-    PrivacyPage = __decorate([
+    ReferFriendPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-privacy',template:/*ion-inline-start:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/privacy/privacy.html"*/'<!--\n  Generated template for the PrivacyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>privacy</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n<ion-header>\n    <ion-navbar no-border-bottom>\n      <button ion-button menuToggle>\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n      <ion-title> Privacy </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <ion-item>\n      <h2>Privacy Policy</h2>\n      <p>Lorem ipsum dolor sit amet, consectetur to the adipiscing elit, sed do eiusmod tempor omnicro incididunt ut labore et dolore\n      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat ion ullamco laboris nisi ut aliquip ex ea combina commodo consequat.</p>\n      \n      <p>Duis aute irure dolor in reprehenderit in the go voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n    \n    </ion-item>\n  \n    <ion-item>\n      <img item-start src="assets/img/round.png" alt="">\n      <p class="mb-0">Lorem ipsum dolor sit amet consectetur</p>\n    </ion-item>\n  \n    <ion-item>\n      <img item-start src="assets/img/round.png" alt="">\n      <p class="mb-0">Adipiscing elit, sed do eiusmod temp</p>\n    </ion-item>\n  \n    <ion-item>\n      <img item-start src="assets/img/round.png" alt="">\n      <p class="mb-0">Onicro incididunt ut labore et dolore</p>\n    </ion-item>\n  \n    <ion-item>\n      <img item-start src="assets/img/round.png" alt="">\n      <p class="mb-0">magna aliqua to enim ad minim veniam</p>\n    </ion-item>\n    \n    <ion-item>\n      <p>Lorem ipsum dolor sit amet, consectetur to the adipiscing elit, nostrud exercitat ion ullamco laboris nisi ut aliquip ex\n        ea combina commodo consequat.</p>\n    </ion-item>\n    \n  \n  </ion-content>\n  '/*ion-inline-end:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/privacy/privacy.html"*/,
+            selector: 'page-refer-friend',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/refer-friend/refer-friend.html"*/'<!--\n  Generated template for the ReferFriendPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>refer-friend</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n    <ion-title>Refer Friend</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <form>\n    <ion-list>\n\n      <p class="gray-text">For refer friend, type email address of your friend and send it to him/her...</p>\n      <ion-item>\n        <ion-input type="Email" value="" placeholder="Type email"></ion-input>\n      </ion-item>\n\n      <button ion-button color="danger" block>Submit</button>\n    </ion-list>\n\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/refer-friend/refer-friend.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], PrivacyPage);
-    return PrivacyPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], ReferFriendPage);
+    return ReferFriendPage;
 }());
 
-//# sourceMappingURL=privacy.js.map
+//# sourceMappingURL=refer-friend.js.map
 
 /***/ })
 

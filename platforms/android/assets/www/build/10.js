@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 679:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditProfilePageModule", function() { return EditProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordPageModule", function() { return ForgotPasswordPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_profile__ = __webpack_require__(695);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__forgot_password__ = __webpack_require__(704);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditProfilePageModule = /** @class */ (function () {
-    function EditProfilePageModule() {
+var ForgotPasswordPageModule = /** @class */ (function () {
+    function ForgotPasswordPageModule() {
     }
-    EditProfilePageModule = __decorate([
+    ForgotPasswordPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__forgot_password__["a" /* ForgotPasswordPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__forgot_password__["a" /* ForgotPasswordPage */]),
             ],
         })
-    ], EditProfilePageModule);
-    return EditProfilePageModule;
+    ], ForgotPasswordPageModule);
+    return ForgotPasswordPageModule;
 }());
 
-//# sourceMappingURL=edit-profile.module.js.map
+//# sourceMappingURL=forgot-password.module.js.map
 
 /***/ }),
 
-/***/ 695:
+/***/ 704:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotPasswordPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_service__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_service_service__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,79 +63,84 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
- * Generated class for the EditProfilePage page.
+ * Generated class for the ForgotPasswordPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var EditProfilePage = /** @class */ (function () {
-    function EditProfilePage(navCtrl, navParams, api, AuthService, alertCtrl, service) {
+var ForgotPasswordPage = /** @class */ (function () {
+    function ForgotPasswordPage(navCtrl, navParams, api, AuthService, alertCtrl, service, events, fb, loadingCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.api = api;
         this.AuthService = AuthService;
         this.alertCtrl = alertCtrl;
         this.service = service;
-        //data:any;
+        this.events = events;
+        this.fb = fb;
+        this.loadingCtrl = loadingCtrl;
         this.data = {};
-        this.user_id = AuthService.getuserid();
+        this.isValidEmail = true;
+        this.submitted = false;
+        this.rForm = fb.group({
+            'email_address': [null, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]
+        });
     }
-    EditProfilePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditProfilePage');
-        this.myProfile();
+    ForgotPasswordPage.prototype.checkEmail = function (values) {
+        if (values != '') {
+            this.isValidEmail = this.validateEmail(values);
+        }
     };
-    EditProfilePage.prototype.myProfile = function () {
+    ForgotPasswordPage.prototype.validateEmail = function (email_address) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email_address);
+    };
+    ForgotPasswordPage.prototype.resetPassword = function (data) {
         var _this = this;
-        this.api.post('viewuser', { id: this.user_id }).subscribe(function (response) {
+        var loading = this.loadingCtrl.create({
+            spinner: 'show',
+            content: 'Loading Please Wait...',
+            duration: 3000
+        });
+        loading.present();
+        this.api.post('forget_password', data).subscribe(function (response) {
             console.log(response);
-            if (response.Ack === 1) {
-                _this.userList = response.user_details;
-                _this.data = { email: response.user_details.User.email_address, first_name: response.user_details.User.first_name, last_name: response.user_details.User.last_name, phoneno: response.user_details.User.phoneno, address: response.user_details.User.address };
-                console.log(_this.data);
+            //  console.log(response.user_details.User.id);
+            // console.log(response.user_details.UserImage[0].originalpath);
+            if (response.Ack == 1) {
+                _this.service.popup('Alert', 'Please check your email.');
+                _this.navCtrl.push("LoginPage");
             }
             else {
+                _this.service.popup('Alert', 'Wrong EmailId');
             }
         }, function (err) {
-            _this.service.popup('Alert', 'Already Registered');
+            _this.service.popup('Alert', 'Error!');
         });
     };
-    EditProfilePage.prototype.editProfile = function (data) {
-        var _this = this;
-        data.id = this.user_id;
-        this.api.post('editprofile', data).subscribe(function (response) {
-            console.log(response);
-            if (response.Ack === 1) {
-                _this.afloginsuccess(response);
-                _this.AuthService.initializeUserData({ id: _this.user_id, first_name: response.user_details.User.first_name, last_name: response.user_details.User.last_name });
-                //this.myProfile(); 
-            }
-            else {
-                _this.service.popup('Alert', "Profile not Update");
-            }
-        }, function (err) {
-            _this.service.popup('Alert', 'Something wrong');
-        });
+    ForgotPasswordPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ForgotPasswordPage');
     };
-    EditProfilePage.prototype.afloginsuccess = function (response) {
-        // this.navCtrl.setRoot('Success');
-        this.service.popup('Success', 'Profile update successfully');
-    };
-    EditProfilePage = __decorate([
+    ForgotPasswordPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-profile',template:/*ion-inline-start:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/edit-profile/edit-profile.html"*/'<!--\n  Generated template for the EditProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n    <ion-navbar no-border-bottom>\n      <button ion-button menuToggle>\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n      <ion-title> Edit Profile </ion-title>\n  \n      <ion-buttons end>\n        <!-- <button ion-button icon-only>\n           Save\n        </button> -->\n      </ion-buttons>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-list>\n    <ion-item class="brdr-0">\n      <ion-avatar>\n        <img src="assets/img/pro-pic.jpg">\n        <div class="edit-area"><ion-icon name="camera"></ion-icon></div>\n      </ion-avatar>\n    </ion-item>\n  \n    <div class="form-field">\n      <ion-label class="form-label" >First Name:</ion-label>\n      <ion-item>\n        <ion-input type="text" name="first_name" [(ngModel)]="data.first_name" value="" placeholder="Emma Megan"></ion-input>\n      </ion-item>\n    </div>\n\n    <div class="form-field">\n        <ion-label class="form-label" >Last Name:</ion-label>\n        <ion-item> \n          <ion-input type="text" name="last_name" [(ngModel)]="data.last_name" value="" placeholder="Emma Megan"></ion-input>\n        </ion-item>\n      </div>\n    \n  \n    <div class="form-field">\n      <ion-label class="form-label">Address:</ion-label>\n      <ion-item>\n        <ion-input type="text" name="address" [(ngModel)]="data.address" value="" placeholder="California C.A. USA"></ion-input>\n      </ion-item>\n    </div>\n  \n    <div class="form-field">\n      <ion-label class="form-label">Email:</ion-label>\n      <ion-item>\n        <ion-input readonly type="text" name="email" [(ngModel)]="data.email"  value="" placeholder="emmamegan@gmail.com"></ion-input>\n      </ion-item>\n    </div>\n  \n    <div class="form-field">\n      <ion-label class="form-label">Phone:</ion-label>\n      <ion-item>\n        <ion-input type="text" name="phoneno" [(ngModel)]="data.phoneno" value="" placeholder="589684423"></ion-input>\n      </ion-item>\n    </div>\n  \n    <div padding>\n      <button ion-button block color="danger" (click)="editProfile(data)">Submit</button>\n    </div>\n       \n  \n      \n  \n    \n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/home/nits-avik/Desktop/ionic3/gypsy-latest/src/pages/edit-profile/edit-profile.html"*/,
+            selector: 'page-forgot-password',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/forgot-password/forgot-password.html"*/'<!--\n  Generated template for the ForgotPasswordPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n	<ion-navbar>\n		<button ion-button menuToggle>\n		<ion-icon name="arrow-back"></ion-icon>\n		</button>		\n		<ion-title>Forgot Password</ion-title>   \n	</ion-navbar>\n</ion-header>\n\n<ion-content padding="">\n	<div class="logo">\n		<img src="assets/img/appicon.png" alt="Ionic logo">\n	</div>\n\n	<form [formGroup]="rForm" novalidate>\n		<ion-list>\n		\n			<ion-item>\n				<ion-input type="email" formControlName="email_address" value="" placeholder="Email address" (ngModelChange)="checkEmail($event)" required></ion-input>\n			</ion-item>\n			<p *ngIf="!rForm.controls[\'email_address\'].valid && rForm.controls[\'email_address\'].touched" ion-text color="danger">Email is required </p>			\n			<p *ngIf="!isValidEmail" ion-text color="danger">Please enter valid email id. </p>			\n			\n			<button ion-button color="danger" [disabled]="!rForm.valid" block (click)="resetPassword(rForm.value)">Submit</button>\n			\n		</ion-list>\n\n	</form>\n\n</ion-content>'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/forgot-password/forgot-password.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */]])
-    ], EditProfilePage);
-    return EditProfilePage;
+            __WEBPACK_IMPORTED_MODULE_5__providers_service_service__["a" /* ServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]])
+    ], ForgotPasswordPage);
+    return ForgotPasswordPage;
 }());
 
-//# sourceMappingURL=edit-profile.js.map
+//# sourceMappingURL=forgot-password.js.map
 
 /***/ })
 

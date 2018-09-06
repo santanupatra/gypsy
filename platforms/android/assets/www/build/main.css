@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900");
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25783,210 +25782,47 @@ ion-navbar.toolbar {
   display: none;
 }
 
-body, ion-app.md, ion-app.ios, h1, button, .toolbar-title, ion-content, .item-md, ion-item, p {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 14px !important;
+.left-menu {
+  margin-bottom: 0;
+  position: relative;
+  padding-right: 60px;
+  background: #fff;
 }
 
-.ml-0 {
-  margin-left: 0 !important;
+.left-menu .follow {
+  right: 0;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 10px;
+  height: 2.5rem;
+  padding: 0 0.8em;
+  text-transform: uppercase;
 }
 
-.mr-0 {
-  margin-right: 0 !important;
+.left-menu .item > ion-icon:first-child {
+  min-width: 40px;
 }
 
-.mb-1 {
-  margin-bottom: 10px !important;
+.left-menu .item img {
+  max-width: 52%;
 }
 
-.mb-2 {
-  margin-bottom: 10px !important;
-}
-
-.mb-3 {
-  margin-bottom: 30px !important;
-}
-
-.mb-4 {
-  margin-bottom: 40px !important;
-}
-
-.mb-5 {
-  margin-bottom: 50px !important;
-}
-
-.mb-half {
-  margin-bottom: 5px !important;
-}
-
-.pr-0 {
-  padding-right: 0 !important;
-}
-
-.pl-0 {
-  padding-left: 0 !important;
-}
-
-.grey-bg {
-  background: #ededed;
-}
-
-.text-right {
-  text-align: right !important;
-}
-
-.text-center {
-  text-align: center !important;
-}
-
-.button {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
-.text-input-ios, .text-input-md {
-  margin: 10px 8px 10px 0;
-}
-
-.d-flex {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-}
-
-ion-navbar .toolbar-background-md, ion-navbar .toolbar-background-ios {
-  border-color: transparent !important;
-  background-color: #c0c0c0 !important;
-}
-
-.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
-  color: #fff;
-}
-
-.left-bar-top-area {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 20px 10px;
-}
-
-.left-top-pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  overflow: hidden;
-  margin-right: 15px;
-}
-
-.left-bar-top-area h5 {
-  margin: 0;
-  color: #fff;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.left-bar-top-area p {
-  margin: 0;
-  color: #fff;
-}
-
-.left-sidebar-list.list .item-block {
-  border-bottom: #e1e1e1 1px solid;
-  padding: 6px 16px;
-}
-
-.left-sidebar-list.list .item-block .icon {
-  color: #555;
-}
-
-.left-sidebar-list.list .item-block .item-inner {
-  border: none;
-  margin-left: 7px;
-}
-
-.left-sidebar-list.list .item-block .item-inner .label {
-  color: #555;
-}
-
-.left-sidebar-list.list .item-block .item-inner {
+.left-menu .item .item-inner {
+  margin-left: 0px !important;
   background-image: none !important;
 }
 
-.toolbar-title {
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.left-menu .item .item-inner .label {
+  font-size: 1.4rem;
 }
 
-.toolbar .back-button-text {
-  display: none;
+.left-menu.list-ios .item-block .item-inner, .left-menu.list-md .item-block .item-inner {
+  border-bottom: none;
 }
 
-.custom-segment .segment-button {
-  border: none;
-  color: #777 !important;
-  border-right: #c1c1c1 1px solid;
-  border-radius: 0 !important;
-  background: #e5e5e5;
-  text-transform: uppercase;
-  text-overflow: normal;
-  white-space: normal;
-  word-wrap: break-all;
-  line-height: 12px !important;
-  padding: 8px 0 5px 0;
-  height: 4rem !important;
-  font-weight: bold;
-}
-
-.custom-segment.segment .segment-button.segment-activated {
-  background: #f8f8f8;
-  color: #ff7301 !important;
-  border-right: none;
-  text-overflow: normal;
-  white-space: normal;
-  word-wrap: break-all;
-}
-
-.grid {
-  padding: 0 !important;
-}
-
-.title {
-  font-weight: 300 !important;
-}
-
-.toolbar {
-  padding: 0 !important;
-}
-
-.left-sidebar-list.list .item-block .icon {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-ion-badge {
-  padding: 3px 5px;
-}
-
-.left-bar-top-area {
-  border-color: transparent !important;
-  background-color: #c0c0c0 !important;
-}
-
-.toolbar-title-md {
-  padding: 0 12px;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #fff;
+.left-menu.list-ios > .item-block:first-child {
+  border-top: 0;
 }
 
 page-account img {
@@ -26558,6 +26394,128 @@ page-feed .brdr-b {
 
 page-feed .text-input {
   margin-top: 0 !important;
+}
+
+page-forgot-password .logo {
+  padding: 80px 0 40px;
+  text-align: center;
+}
+
+page-forgot-password .logo img {
+  max-width: 150px;
+}
+
+page-forgot-password .list {
+  margin-bottom: 0;
+}
+
+page-forgot-password .list > .item-block:first-child {
+  border-top: 0;
+}
+
+page-forgot-password .list > .item-block:last-child {
+  border-bottom: 0;
+}
+
+page-forgot-password .list > .item-block:last-child .item-inner {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+page-forgot-password .item {
+  padding-right: 0;
+  margin-bottom: 12px;
+  padding-left: 0;
+}
+
+page-forgot-password .item .item-inner {
+  padding-left: 8px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+}
+
+page-forgot-password .item.item-input.item-input-has-focus .item-inner, page-forgot-password .item.item-input.input-has-focus .item-inner {
+  border-bottom-color: transparent !important;
+  -webkit-box-shadow: 0 -1px 0 0 #d4d4d4 inset;
+  box-shadow: 0 -1px 0 0 #d4d4d4 inset;
+}
+
+page-forgot-password .text-input {
+  color: #555555 !important;
+}
+
+page-forgot-password .row .col .item {
+  margin-bottom: 0;
+}
+
+page-forgot-password .row .col .item-checkbox .checkbox {
+  margin-right: 9px;
+  margin-left: 0;
+}
+
+page-forgot-password .row .col .item-checkbox .item-inner {
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+page-forgot-password .checkbox + .item-inner ion-label {
+  color: #555555;
+  font-weight: 500;
+}
+
+page-forgot-password .row .col .item-checkbox .checkbox .checkbox-icon {
+  border-color: #d4d4d4;
+}
+
+page-forgot-password .checkbox-checked {
+  background-color: #c60626 !important;
+  border-color: #c60626 !important;
+}
+
+page-forgot-password .row .col p {
+  color: #555555;
+  font-weight: 500;
+}
+
+page-forgot-password .button {
+  height: 4.2rem;
+}
+
+page-forgot-password .line {
+  width: 50px;
+  height: 1px;
+  background-color: #555555;
+}
+
+page-forgot-password .or-area {
+  margin-top: 0;
+}
+
+page-forgot-password .or {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+}
+
+page-forgot-password .social-icon {
+  width: 50px;
+  height: 50px;
+}
+
+page-forgot-password .acess {
+  color: #555555;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+page-forgot-password .guest {
+  color: #c60626;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+page-forgot-password .gray-text {
+  color: #555555 !important;
 }
 
 page-home .title .toolbar-title {
