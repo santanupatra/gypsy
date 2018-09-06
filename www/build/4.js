@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 687:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReferFriendPageModule", function() { return ReferFriendPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReviewPageModule", function() { return ReviewPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__refer_friend__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__review__ = __webpack_require__(707);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ReferFriendPageModule = /** @class */ (function () {
-    function ReferFriendPageModule() {
+var ReviewPageModule = /** @class */ (function () {
+    function ReviewPageModule() {
     }
-    ReferFriendPageModule = __decorate([
+    ReviewPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__refer_friend__["a" /* ReferFriendPage */],
+                __WEBPACK_IMPORTED_MODULE_2__review__["a" /* ReviewPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__refer_friend__["a" /* ReferFriendPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__review__["a" /* ReviewPage */]),
             ],
         })
-    ], ReferFriendPageModule);
-    return ReferFriendPageModule;
+    ], ReviewPageModule);
+    return ReviewPageModule;
 }());
 
-//# sourceMappingURL=refer-friend.module.js.map
+//# sourceMappingURL=review.module.js.map
 
 /***/ }),
 
-/***/ 705:
+/***/ 707:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReferFriendPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReviewPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,29 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ReferFriendPage page.
+ * Generated class for the ReviewPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ReferFriendPage = /** @class */ (function () {
-    function ReferFriendPage(navCtrl, navParams) {
+var ReviewPage = /** @class */ (function () {
+    function ReviewPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    ReferFriendPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ReferFriendPage');
+    ReviewPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ReviewPage');
     };
-    ReferFriendPage = __decorate([
+    ReviewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-refer-friend',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/refer-friend/refer-friend.html"*/'<!--\n  Generated template for the ReferFriendPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>refer-friend</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n    <ion-title>Refer Friend</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <form>\n    <ion-list>\n\n      <p class="gray-text">For refer friend, type email address of your friend and send it to him/her...</p>\n      <ion-item>\n        <ion-input type="Email" value="" placeholder="Type email"></ion-input>\n      </ion-item>\n\n      <button ion-button color="danger" block>Submit</button>\n    </ion-list>\n\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/refer-friend/refer-friend.html"*/,
+            selector: 'page-review',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/review/review.html"*/'<!--\n  Generated template for the ReviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>review</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n<ion-header>\n    <ion-navbar no-border-bottom>\n      <button ion-button menuToggle>\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n      <ion-title> Review </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content>\n  \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/wish-watch.png">\n        </ion-thumbnail>\n        <h2>Rolex Cosmograph Daytona</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p><ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star-half"></ion-icon> <span>(4.5)</span> </p>\n      \n      \n      </ion-item>\n    </ion-card>\n    \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/nikon.jpg">\n        </ion-thumbnail>\n        <h2>Nikon D-90 DSLR</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n      </ion-item>\n    </ion-card>\n  \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/drone-b.jpg">\n        </ion-thumbnail>\n        <h2>Angel Drone</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n    \n    \n      </ion-item>\n    </ion-card>\n    \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/speakr-pic.jpg">\n        </ion-thumbnail>\n        <h2>2 in 1 speaker</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n      </ion-item>\n    </ion-card>\n  \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/wish-watch.png">\n        </ion-thumbnail>\n        <h2>Rolex Cosmograph Daytona</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n    \n    \n      </ion-item>\n    </ion-card>\n  \n  </ion-content>\n  '/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/review/review.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
-    ], ReferFriendPage);
-    return ReferFriendPage;
+    ], ReviewPage);
+    return ReviewPage;
 }());
 
-//# sourceMappingURL=refer-friend.js.map
+//# sourceMappingURL=review.js.map
 
 /***/ })
 

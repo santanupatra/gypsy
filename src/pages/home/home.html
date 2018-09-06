@@ -30,7 +30,7 @@
     </ion-list-header>
     
     <div class="new-arrival">
-       <ion-card ng-init='count=0' *ngFor="let newarraival of newarraivalList; index as i"> 
+       <ion-card *ngFor="let newarraival of newarraivalList; index as i"> 
               
         <img class="card-pic" src="{{newarraival.image}}" (click)="gotoDetails(newarraival.id)">
         <ion-card-content>

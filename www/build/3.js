@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 688:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReviewPageModule", function() { return ReviewPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__review__ = __webpack_require__(706);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(708);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ReviewPageModule = /** @class */ (function () {
-    function ReviewPageModule() {
+var SettingsPageModule = /** @class */ (function () {
+    function SettingsPageModule() {
     }
-    ReviewPageModule = __decorate([
+    SettingsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__review__["a" /* ReviewPage */],
+                __WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__review__["a" /* ReviewPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */]),
             ],
         })
-    ], ReviewPageModule);
-    return ReviewPageModule;
+    ], SettingsPageModule);
+    return SettingsPageModule;
 }());
 
-//# sourceMappingURL=review.module.js.map
+//# sourceMappingURL=settings.module.js.map
 
 /***/ }),
 
-/***/ 706:
+/***/ 708:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReviewPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,29 +57,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ReviewPage page.
+ * Generated class for the SettingsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ReviewPage = /** @class */ (function () {
-    function ReviewPage(navCtrl, navParams) {
+var SettingsPage = /** @class */ (function () {
+    function SettingsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    ReviewPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ReviewPage');
+    SettingsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SettingsPage');
     };
-    ReviewPage = __decorate([
+    SettingsPage.prototype.openPage = function (page) {
+        this.navCtrl.push(page);
+    };
+    SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-review',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/review/review.html"*/'<!--\n  Generated template for the ReviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>review</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n<ion-header>\n    <ion-navbar no-border-bottom>\n      <button ion-button menuToggle>\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n      <ion-title> Review </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  \n  <ion-content>\n  \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/wish-watch.png">\n        </ion-thumbnail>\n        <h2>Rolex Cosmograph Daytona</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p><ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star"></ion-icon> <ion-icon class="star" name="star-half"></ion-icon> <span>(4.5)</span> </p>\n      \n      \n      </ion-item>\n    </ion-card>\n    \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/nikon.jpg">\n        </ion-thumbnail>\n        <h2>Nikon D-90 DSLR</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n      </ion-item>\n    </ion-card>\n  \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/drone-b.jpg">\n        </ion-thumbnail>\n        <h2>Angel Drone</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n    \n    \n      </ion-item>\n    </ion-card>\n    \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/speakr-pic.jpg">\n        </ion-thumbnail>\n        <h2>2 in 1 speaker</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n      </ion-item>\n    </ion-card>\n  \n    <ion-card>\n      <ion-item>\n        <ion-thumbnail item-start>\n          <img src="assets/img/wish-watch.png">\n        </ion-thumbnail>\n        <h2>Rolex Cosmograph Daytona</h2>\n        <ion-note item-end="" class="note note-ios">5m</ion-note>\n        <p>Lorem Ipsum is simply dumy text of the watch printing and typesetting industry.</p>\n        <p>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star"></ion-icon>\n          <ion-icon class="star" name="star-half"></ion-icon>\n          <span>(4.5)</span>\n        </p>\n    \n    \n      </ion-item>\n    </ion-card>\n  \n  </ion-content>\n  '/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/review/review.html"*/,
+            selector: 'page-settings',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>    \n        <ion-list>   \n          \n    \n          <button menuClose ion-item icon-left (click)="openPage(\'EditProfilePage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-person item-icon" aria-label="person" ng-reflect-name="person"></ion-icon>\n           My Profile\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'WishlistPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-heart item-icon" aria-label="heart" ng-reflect-name="heart"></ion-icon>\n           My Activity\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'CompanylistPage\')">\n            <ion-icon item-left name="ios-list-box-outline" ></ion-icon>\n           Company List\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ReferFriendPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-people item-icon" aria-label="people" ng-reflect-name="people"></ion-icon>\n           Reffer Friend\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ChangePasswordPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-key item-icon" aria-label="key" ng-reflect-name="key"></ion-icon>\n           Change Password\n          </button>\n    \n    \n          <button menuClose ion-item icon-left (click)="openPage(\'ReviewPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-star item-icon icon-md-primary" aria-label="star" ng-reflect-name="star" ng-reflect-color="primary"></ion-icon>\n    \n             My Review\n            </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'PrivacyPage\')">\n            <ion-icon item-left name="ios-list-box-outline" ></ion-icon>\n             Privacy & Policy\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="openPage(\'TermsconditionPage\')">\n              <ion-icon item-start="" role="img" class="icon icon-md ion-md-copy item-icon" aria-label="copy" ng-reflect-name="copy"></ion-icon>\n               Terms & Condition\n          </button>\n    \n          <button menuClose ion-item icon-left (click)="logout()">\n            <ion-icon item-left name="md-log-out"></ion-icon>\n            Logout\n          </button>\n    \n        </ion-list>\n      </ion-content>\n\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/settings/settings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
-    ], ReviewPage);
-    return ReviewPage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object])
+    ], SettingsPage);
+    return SettingsPage;
+    var _a, _b;
 }());
 
-//# sourceMappingURL=review.js.map
+//# sourceMappingURL=settings.js.map
 
 /***/ })
 

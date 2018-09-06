@@ -13,103 +13,8 @@
 			</button>
 			<button ion-button outline class="follow">Follow</button>
 		</ion-list>
-		<!--<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/connected.png" alt=""></ion-icon> Connected Home
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/speaker.png" alt=""></ion-icon> Speaker
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/ar-vr.png" alt=""></ion-icon> AR/VR
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/drone.png" alt=""></ion-icon> Drones
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/camera.png" alt=""></ion-icon> Cameras
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/grill.png" alt=""></ion-icon> Grill
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/charger.png" alt=""></ion-icon> Chargers
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/travel.png" alt=""></ion-icon> Travel and outdoor
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $50
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $100
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>
-		<ion-list class="left-menu">
-			<button ion-item menuClose (click)="openPage(p)">
-				<ion-icon item-start><img src="assets/img/menu-icons/under.png" alt=""></ion-icon> Under $500
-			</button>
-			<button ion-button outline class="follow">Follow</button>
-		</ion-list>-->
+		
     </ion-content>
-
-	<!--<ion-content class="outer-content">
-		<ion-list>
-			<button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
-			<ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-			{{p.title}}
-			</button>
-		</ion-list>
-
-      <ion-list>
-        <ion-list-header>
-          Account
-        </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          {{p.title}}
-        </button>
-      </ion-list>
-
-      <ion-list>
-        <ion-list-header>
-          Tutorial
-        </ion-list-header>
-        <button ion-item menuClose (click)="openTutorial()">
-          <ion-icon item-start name="hammer"></ion-icon>
-          Show Tutorial
-        </button>
-      </ion-list>
-
-    </ion-content>-->
 
   </ion-menu>
 
@@ -151,7 +56,7 @@
           </ion-col>
         
           <ion-col text-center>
-            <a (click)="openPage('EditProfilePage')">
+            <a (click)="openPage('SettingsPage')">
               <ion-icon name="ios-person-outline"></ion-icon>
               <p class="titl">Settings</p>
             </a>

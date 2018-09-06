@@ -1,14 +1,14 @@
 webpackJsonp([17],{
 
-/***/ 674:
+/***/ 675:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountPageModule", function() { return AccountPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartPageModule", function() { return CartPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart__ = __webpack_require__(694);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AccountPageModule = /** @class */ (function () {
-    function AccountPageModule() {
+var CartPageModule = /** @class */ (function () {
+    function CartPageModule() {
     }
-    AccountPageModule = __decorate([
+    CartPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */],
+                __WEBPACK_IMPORTED_MODULE_2__cart__["a" /* CartPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__cart__["a" /* CartPage */]),
             ],
         })
-    ], AccountPageModule);
-    return AccountPageModule;
+    ], CartPageModule);
+    return CartPageModule;
 }());
 
-//# sourceMappingURL=account.module.js.map
+//# sourceMappingURL=cart.module.js.map
 
 /***/ }),
 
-/***/ 692:
+/***/ 694:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_service__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,67 +59,105 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-//import { UserData } from '../../providers/user-data';
-var AccountPage = /** @class */ (function () {
-    function AccountPage(alertCtrl, nav) {
+
+
+
+/**
+ * Generated class for the CartPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var CartPage = /** @class */ (function () {
+    function CartPage(navCtrl, navParams, api, alertCtrl, AuthService, service) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.api = api;
         this.alertCtrl = alertCtrl;
-        this.nav = nav;
+        this.AuthService = AuthService;
+        this.service = service;
+        this.user_id = AuthService.getuserid();
+        this.url = "http://111.93.169.90/";
     }
-    AccountPage.prototype.ngAfterViewInit = function () {
-        //this.getUsername();
+    CartPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CartPage');
+        this.fetchProduct();
     };
-    AccountPage.prototype.updatePicture = function () {
-        console.log('Clicked to update picture');
+    CartPage.prototype.strip = function (html) {
+        return html.replace(/<(?:.|\n)*?>/gm, '');
     };
-    // Present an alert with the current username populated
-    // clicking OK will update the username and display it
-    // clicking Cancel will close the alert and do nothing
-    AccountPage.prototype.changeUsername = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Change Username',
-            buttons: [
-                'Cancel'
-            ]
-        });
-        alert.addInput({
-            name: 'username',
-            value: this.username,
-            placeholder: 'username'
-        });
-        alert.addButton({
-            text: 'Ok',
-            handler: function (data) {
-                // this.userData.setUsername(data.username);
-                // this.getUsername();
+    CartPage.prototype.br2nl = function (html) {
+        return html.replace(/<br( \/|\/|)>/gm, '\r\n');
+    };
+    CartPage.prototype.fetchProduct = function () {
+        var _this = this;
+        this.api.post('viewcart', { user_id: this.user_id }).subscribe(function (response) {
+            console.log(response);
+            if (response.Ack === 1) {
+                _this.productList = response.cart_details;
+                console.log(_this.productList);
             }
+            else {
+                _this.productList = null;
+                _this.message = response.msg;
+            }
+        }, function (err) {
+            _this.service.popup('Alert', 'Something went wrong');
+        });
+    };
+    CartPage.prototype.removeItem = function (id) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: 'Confirm Remove',
+            message: 'Do you want remove the item from your Cart?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        // return false;
+                    }
+                },
+                {
+                    text: 'Remove',
+                    handler: function () {
+                        _this.api.post('deletecart', { cart_id: id }).subscribe(function (response) {
+                            //	this.api.post('removecart/' + id, { }).subscribe((response: any) => {
+                            console.log(response);
+                            if (response.Ack === 1) {
+                                //  this.productList = response.wishlist_details;
+                                //  this.is_exist = 1;
+                                //	this.productList = null;
+                                _this.fetchProduct();
+                            }
+                            else {
+                                //this.message = response.msg;
+                                //this.is_exist = 0;
+                            }
+                        }, function () {
+                            _this.service.popup('Alert', 'Something went Wrong');
+                        });
+                    }
+                }
+            ]
         });
         alert.present();
     };
-    // getUsername() {
-    //   this.userData.getUsername().then((username) => {
-    //     this.username = username;
-    //   });
-    // }
-    AccountPage.prototype.changePassword = function () {
-        console.log('Clicked to change password');
-    };
-    // logout() {
-    //   this.userData.logout();
-    //   this.nav.setRoot('LoginPage');
-    // }
-    AccountPage.prototype.support = function () {
-        this.nav.push('SupportPage');
-    };
-    AccountPage = __decorate([
+    CartPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-account',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/account/account.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Account</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="outer-content">\n  <div padding-top text-center *ngIf="username">\n    <img src="http://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">\n    <h2>{{username}}</h2>\n\n    <ion-list inset>\n      <button ion-item (click)="updatePicture()">Update Picture</button>\n      <button ion-item (click)="changeUsername()">Change Username</button>\n      <button ion-item (click)="changePassword()">Change Password</button>\n      <button ion-item (click)="support()">Support</button>\n      <button ion-item (click)="logout()">Logout</button>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/account/account.html"*/
+            selector: 'page-cart',template:/*ion-inline-start:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/cart/cart.html"*/'<!--\n  Generated template for the CartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>cart</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n<ion-header>\n  <ion-navbar no-border-bottom>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title> Cart </ion-title>\n    \n    <ion-buttons end class="position-rel">\n      <div class="cart-amnt">2</div>\n      <button ion-button icon-only >\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n<div *ngIf="productList != null">\n<ion-card *ngFor="let product of productList">\n  \n  <ion-item>\n    <ion-thumbnail item-start>\n       \n      <img src="{{url}}{{product.ProductImage}}">\n    \n    </ion-thumbnail>\n    <h2>{{product.Product.product_name}}</h2>\n    <p>{{this.strip(this.br2nl(product.Product.product_description))}}</p>\n    <h2 class="price">$ {{product.Product.price}}</h2>\n    <button ion-button  color="secondary">\n      <ion-icon name="cart"></ion-icon> Buy It</button>\n    <button ion-button (click)="removeItem(product.Cart.id)" color="danger">\n      <ion-icon name="trash"></ion-icon> Remove</button>\n  </ion-item>\n</ion-card>\n\n</div>\n\n<div *ngIf="productList == null">\n\n  <h4 style="text-align:center">No Recors Found!!!</h4>\n</div>\n\n  \n</ion-content>\n'/*ion-inline-end:"/home/nits-santanu/Desktop/ionic/gypsy/src/pages/cart/cart.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]])
-    ], AccountPage);
-    return AccountPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_service_service__["a" /* ServiceProvider */]])
+    ], CartPage);
+    return CartPage;
 }());
 
-//# sourceMappingURL=account.js.map
+//# sourceMappingURL=cart.js.map
 
 /***/ })
 
