@@ -17,7 +17,9 @@ import { ServiceProvider } from '../../providers/service/service';
   templateUrl: 'product-list.html',
 })
 export class ProductListPage {
-  id:any;
+  cid:any;
+  productList:any;
+  image_url: any;
 
   constructor(
     public navCtrl: NavController,
@@ -27,31 +29,31 @@ export class ProductListPage {
     public alertCtrl: AlertController,
     private service: ServiceProvider
   ) {
-    this.id = this.navParams.get('id');
-    this.getProductlist();
+    this.cid = this.navParams.get('id');
+    this.getProductlist(this.cid);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductListPage');
   }
 
-  getProductlist(){
-    
-    this.api.post('product_list',{user_id:''}).subscribe((response : any)  => {
+  getProductlist(cid){    
+    this.api.post('product_list',{cid:cid}).subscribe((response : any)  => {
       console.log(response);
-      if(response.Ack === 1){
-        //  this.afloginsuccess(response);
-  
-        this.companyList = response.full_list;
-  
-        this.image_url = response.image_url;
+      if(response.Ack === 1){  
+        this.productList = response.products;  
+        this.image_url = response.link;
       }else{
-        this.service.popup('Alert', 'Wrong EmailId & Password');
+        this.service.popup('Alert', 'Product Not Found');
       }
     }, err => {
-      this.service.popup('Alert', 'Already Registered');
+      this.service.popup('Alert', 'Error');
     });
     
+      }
+
+      gotoDetails(id) {   
+        this.navCtrl.push('DetailPage', {id:id});
       }
 
 }
